@@ -1,0 +1,43 @@
+body {
+  /* color */
+  --color-mint: #82cbc4;
+  --color-black: #000000;
+  --color-white: #ffffff;
+}
+body {
+  margin: 0;
+}
+#navbar {
+  display: flex;
+  background-color: black;
+  position: fixed;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0.3rem;
+}
+
+.navbar__logo {
+  display: flex;
+}
+
+.navbar__logo__icon {
+  width: 5rem;
+  height: 5rem;
+}
+
+.navbar__menu {
+  display: flex;
+  list-style: none;
+  color: white;
+}
+
+.navbar__menu__item {
+  margin: 0 1rem;
+  padding: 0.5rem;
+  font-family: 'Red Hat Display', sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--color-mint);
+  white-space: nowrap;
+}

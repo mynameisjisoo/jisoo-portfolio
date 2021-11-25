@@ -7,8 +7,41 @@
     <link rel="stylesheet" href="style.css" />
     <script src="main.js" defer></script>
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Red+Hat+Display:ital,wght@0,400;1,500&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <section class="home"></section>
+    <!-- Navbar -->
+    <nav id="navbar">
+      <div class="navbar__logo">
+        <img
+          src="imgs/favicon-tiny.png"
+          alt="logo icon"
+          class="navbar__logo__icon"
+        />
+      </div>
+      <ul class="navbar__menu">
+        <li class="navbar__menu__item selected" data-link="#home">Home</li>
+        <li class="navbar__menu__item" data-link="#about">About Me</li>
+        <li class="navbar__menu__item" data-link="#skills">Timeline</li>
+        <li class="navbar__menu__item" data-link="#works">Skills</li>
+        <li class="navbar__menu__item" data-link="#contact">Works</li>
+        <li class="navbar__menu__item" data-link="#contact">Contact</li>
+      </ul>
+      <!-- toggle button -->
+      <!-- <button class="navbar__toggle-btn">
+        <i class="fas fa-bars"></i>
+      </button> -->
+    </nav>
   </body>
 </html>

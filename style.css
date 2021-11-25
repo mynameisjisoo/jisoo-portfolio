@@ -6,7 +6,19 @@ body {
 }
 body {
   margin: 0;
+  /* background: var(--color-black); */
 }
+
+/* universal tags */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: 'Red Hat Display', sans-serif;
+  cursor: default;
+}
+
 #navbar {
   display: flex;
   background-color: black;
@@ -40,4 +52,10 @@ body {
   font-size: 1.2rem;
   color: var(--color-mint);
   white-space: nowrap;
+}
+
+/* home */
+.home__avatar {
+  width: 70vw;
+  border-radius: 50%;
 }

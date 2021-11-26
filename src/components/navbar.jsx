@@ -1,15 +1,21 @@
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Switch } from 'antd';
 import React from 'react';
-import styled, { css, ThemeContext, ThemeProvider } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { darkTheme } from '../styles/theme';
 
 const Nav = styled.nav`
   ${({ theme }) => {
     return css`
       background-color: ${theme.colors.black};
+      color: ${theme.colors.silver};
+      font-size: ${theme.fonts.size.base};
     `;
   }}
 
   display: flex;
+  justify-content: center;
 `;
 
 const Menu = styled.ul`
@@ -17,9 +23,17 @@ const Menu = styled.ul`
 `;
 
 const MenuItem = styled.li`
-  margin: 0 0.5rem 0 0;
+  margin: 0 1.5rem 0 0;
   font-size: 1.5rem;
 `;
+
+const ToggleButton = styled(
+  <Switch
+    checkedChildren={<FontAwesomeIcon icon={faMoon} />}
+    unCheckedChildren={<FontAwesomeIcon icon={faSun} />}
+    defaultChecked
+  />
+)``;
 
 const Navbar = ({ theme, ...rest }) => {
   return (
@@ -31,10 +45,7 @@ const Navbar = ({ theme, ...rest }) => {
         <MenuItem>Skills</MenuItem>
         <MenuItem>Works</MenuItem>
         <MenuItem>Contact</MenuItem>
-
-        <button class='navbar__toggle-btn'>
-          <i class='fas fa-bars'></i>
-        </button>
+        <ToggleButton></ToggleButton>
       </Menu>
     </Nav>
   );

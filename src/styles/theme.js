@@ -1,7 +1,8 @@
 const colors = {
   black: '#222831',
+  white: '',
   mint: '#82CBC4',
-  silve: '#EEEEEE'
+  silver: '#EEEEEE'
 };
 
 const fonts = {
@@ -17,7 +18,9 @@ const darkThemeColors = {
 
 const defaultTheme = {};
 
-export const darkTheme = {
-  ...defaultTheme,
-  color: darkThemeColors
+const theme = {
+  colors,
+  fonts
 };
+
+export default theme;

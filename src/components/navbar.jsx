@@ -1,39 +1,42 @@
 import React from 'react';
+import styled, { css, ThemeContext, ThemeProvider } from 'styled-components';
+import { darkTheme } from '../styles/theme';
 
-const Navbar = props => {
+const Nav = styled.nav`
+  ${({ theme }) => {
+    return css`
+      background-color: ${theme.colors.black};
+    `;
+  }}
+
+  display: flex;
+`;
+
+const Menu = styled.ul`
+  display: flex;
+`;
+
+const MenuItem = styled.li`
+  margin: 0 0.5rem 0 0;
+  font-size: 1.5rem;
+`;
+
+const Navbar = ({ theme, ...rest }) => {
   return (
-    <nav id='navbar'>
-      <div class='navbar__logo'>
-        <img
-          src='imgs/favicon-tiny.png'
-          alt='logo icon'
-          class='navbar__logo__icon'
-        />
-      </div>
-      <ul class='navbar__menu'>
-        <li class='navbar__menu__item selected' data-link='#home'>
-          Home
-        </li>
-        <li class='navbar__menu__item' data-link='#about'>
-          About Me
-        </li>
-        <li class='navbar__menu__item' data-link='#skills'>
-          Timeline
-        </li>
-        <li class='navbar__menu__item' data-link='#works'>
-          Skills
-        </li>
-        <li class='navbar__menu__item' data-link='#contact'>
-          Works
-        </li>
-        <li class='navbar__menu__item' data-link='#contact'>
-          Contact
-        </li>
-      </ul>
-      <button class='navbar__toggle-btn'>
-        <i class='fas fa-bars'></i>
-      </button>
-    </nav>
+    <Nav theme={theme} {...rest}>
+      <Menu>
+        <MenuItem>Home</MenuItem>
+        <MenuItem>About Me</MenuItem>
+        <MenuItem>Timeline</MenuItem>
+        <MenuItem>Skills</MenuItem>
+        <MenuItem>Works</MenuItem>
+        <MenuItem>Contact</MenuItem>
+
+        <button class='navbar__toggle-btn'>
+          <i class='fas fa-bars'></i>
+        </button>
+      </Menu>
+    </Nav>
   );
 };
 export default Navbar;

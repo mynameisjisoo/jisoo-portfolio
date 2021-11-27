@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
 
  ul{
      list-style: none;
+     padding-left: 0;
  }
 `;
 

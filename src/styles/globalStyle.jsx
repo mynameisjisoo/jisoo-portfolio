@@ -1,4 +1,3 @@
-import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
@@ -9,6 +8,12 @@ const GlobalStyle = createGlobalStyle`
  ul{
      list-style: none;
      padding-left: 0;
+ }
+
+ button{
+  background-color: transparent;
+  outline: none;
+  border: none;
  }
 `;
 

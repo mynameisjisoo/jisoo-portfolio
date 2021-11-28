@@ -12,6 +12,8 @@ const Nav = styled.nav`
       font-size: ${theme.fonts.size.base};
     `;
   }}
+  position: sticky;
+  top: 0;
   display: flex;
   justify-content: space-between;
   vertical-align: middle;
@@ -45,7 +47,7 @@ const MenuButton = styled.button`
 
   ${({ theme }) => {
     return css`
-      color: ${theme.colors.silver};
+      color: ${theme.colors.mint};
     `;
   }}
   @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {

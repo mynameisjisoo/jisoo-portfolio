@@ -1,16 +1,20 @@
-<section id='home'>
-  <div class='home__container'>
-    <img
-      src='imgs/profile2.jpg'
-      alt="jisoo's profile photo"
-      class='home__avatar'
-    />
-    <h1 class='home__title'>
-      Hello
-      <br />
-      I'm Jisoo Lee
-    </h1>
-    <h2 class='home__description'>강조하고싶은 문장적기(~한 개발자)</h2>
-    <button class='home__contact'>Contact Me</button>
-  </div>
-</section>;
+import React from 'react';
+import styled from 'styled-components';
+const Wrapper = styled.div`
+  /* height: 100%; */
+`;
+
+const Image = styled.img`
+  width: 70rem;
+`;
+
+const Home = props => {
+  return (
+    <Wrapper>
+      <Image src='/imgs/profile2.jpg'></Image>
+      <Image src='/imgs/profile-resize.jpg'></Image>
+    </Wrapper>
+  );
+};
+
+export default Home;

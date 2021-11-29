@@ -1,3 +1,5 @@
+import { createContext } from 'react';
+
 const colors = {
   black: '#222831',
   white: '',

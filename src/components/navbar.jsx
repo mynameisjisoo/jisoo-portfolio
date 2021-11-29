@@ -7,11 +7,10 @@ import styled, { css } from 'styled-components';
 const Nav = styled.nav`
   ${({ theme }) => {
     return css`
-      background-color: ${theme.colors.black};
-      color: ${theme.colors.silver};
-      font-size: ${theme.fonts.size.base};
+      font-family: ${theme.fonts.family.eng};
     `;
-  }}
+  }};
+
   position: sticky;
   top: 0;
   display: flex;
@@ -19,6 +18,9 @@ const Nav = styled.nav`
   vertical-align: middle;
   padding: 0.5rem 1rem;
   align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: black;
 
   @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {
     flex-direction: column;

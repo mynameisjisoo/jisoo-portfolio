@@ -6,9 +6,15 @@ const colors = {
 };
 
 const fonts = {
-  family: {},
-  size: {
-    base: '1.5rem'
+  family: {
+    eng: 'Red Hat Display, sans-serif;',
+    kor: `@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+      font-family: 'NanumSquare';
+      font-weight: 300;
+      src: url(NanumSquareL.eot);
+      src: url(NanumSquareL.eot?#iefix) format('embedded-opentype'),
+        url(NanumSquareL.woff) format('woff'),
+        url(NanumSquareL.ttf) format('truetype')`
   }
 };
 

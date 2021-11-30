@@ -1,19 +1,12 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { Title } from '../styles/styledComponent';
-
-const Container = styled.section`
-  display: flex;
-  padding: 3rem;
-  flex-direction: column;
-`;
+import { Container, Title } from '../styles/styledComponent';
 
 const Image = styled.img`
   width: 50rem;
 `;
 
 const Content = styled.div`
-  /* margin: 0 2rem; */
   display: flex;
   align-items: center;
 `;

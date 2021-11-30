@@ -1,11 +1,10 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-const Wrapper = styled.section`
-  display: flex;
-  flex-direction: column;
+import { Container } from '../styles/styledComponent';
+
+const HomeContainer = styled(Container)`
   align-items: center;
   text-align: center;
-  padding: 1rem 0;
 `;
 
 const StyledH1 = styled.h1`
@@ -21,13 +20,9 @@ const Name = styled.span`
   }}
 `;
 
-const StyledDiv = styled.div`
-  display: flex;
-`;
-
 const Home = props => {
   return (
-    <Wrapper>
+    <HomeContainer>
       <StyledH1>
         안녕하세요!
         <br />
@@ -35,7 +30,7 @@ const Home = props => {
         <Name>이지수</Name>입니다.
       </StyledH1>
       <img src='/imgs/jisoo-emoji-macbook.png' />
-    </Wrapper>
+    </HomeContainer>
   );
 };
 

@@ -9,7 +9,6 @@ const Wrapper = styled.section`
 `;
 
 const StyledH1 = styled.h1`
-  margin: 0;
   padding: 0.2rem;
   font-size: 2.4rem;
 `;

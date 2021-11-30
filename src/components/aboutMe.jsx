@@ -4,19 +4,12 @@ import { Title } from '../styles/styledComponent';
 
 const Container = styled.section`
   display: flex;
-  padding: 0 3rem;
-  margin: 3rem 0;
+  padding: 3rem;
   flex-direction: column;
-  ${({ theme }) => {
-    return css`
-      font-family: ${theme.fonts.family.kor};
-    `;
-  }};
 `;
 
 const Image = styled.img`
   width: 50rem;
-  /* width: 50%; */
 `;
 
 const Content = styled.div`
@@ -31,9 +24,9 @@ const Description = styled.p`
   font-size: 1.1rem;
 `;
 
-const AboutMe = props => {
+const AboutMe = ({ theme, ...rest }) => {
   return (
-    <Container>
+    <Container theme={theme} {...rest}>
       <Title>About Me</Title>
       <Content>
         <Image src='/imgs/profile-resize.jpg'></Image>

@@ -3,7 +3,8 @@ import './app.css';
 import AboutMe from './components/aboutMe';
 import Home from './components/home';
 import Navbar from './components/navbar';
-import TimeLine from './components/timeLine';
+import Skills from './components/skills';
+import Timeline from './components/timeline';
 import GlobalStyle from './styles/globalStyle';
 import theme from './styles/theme';
 
@@ -27,7 +28,8 @@ function App() {
         <Navbar />
         <Home />
         <AboutMe />
-        <TimeLine />
+        <Timeline />
+        <Skills />
       </Container>
     </ThemeProvider>
   );

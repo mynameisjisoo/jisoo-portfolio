@@ -15,7 +15,10 @@ const fonts = {
 };
 
 const darkThemeColors = {
-  ...colors
+  ...colors,
+  bgColor: colors.black,
+  baseColor: colors.silver,
+  pointColor: colors.mint
 };
 
 const defaultTheme = {};
@@ -28,7 +31,8 @@ const device = {
 const theme = {
   colors,
   fonts,
-  device
+  device,
+  darkThemeColors
 };
 
 export default theme;

@@ -1,76 +1,115 @@
 import {
   faCss3,
   faHtml5,
+  faJava,
   faJs,
   faReact
 } from '@fortawesome/free-brands-svg-icons';
+import { faTools } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import styled from 'styled-components';
-import { Container, Title } from '../styles/styledComponent';
+import { Section, Title } from '../styles/styledComponent';
 
 const SkillsBox = styled.section`
-  border: solid 1px white;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* width: 75rem; */
+
+  /* background-color: lightyellow; */
 `;
 
 const Skill = styled.article`
-  border: 1px solid wheat;
-`;
+  border: 3px solid wheat;
+  width: 25rem;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
 
-const IconWrapper = styled.div`
-  border: solid 2px white;
-  width: 8rem;
-  height: 8rem;
-  line-height: 8rem;
-  border-radius: 50%;
-  margin: auto;
-  text-align: center;
-  font-size: 5rem;
+  & h3 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0.6rem 0;
+  }
+  & li {
+    list-style: none;
+    font-size: 1.2rem;
+  }
 `;
 
 const Icon = styled(FontAwesomeIcon)`
-  font-size: 5rem;
+  font-size: 3rem;
+  align-self: center;
+  color: ${({ theme }) => theme.darkThemeColors.pointColor2};
+  transition: all 300ms ease-out;
+
+  &:hover {
+    color: ${({ theme }) => theme.darkThemeColors.pointColor};
+    transform: rotate(20deg);
+  }
 `;
+
+const Container = styled.div`
+  /* display: flex;
+  justify-content: center; */
+`;
+
 const Skills = props => {
   return (
-    <Container>
-      <Title>Skills</Title>
-      <SkillsBox>
-        <h2>Skills</h2>
-        <Skill>
-          <Icon icon={faHtml5} />
-          <h3>HTML</h3>
-          <li>시멘틱 마크업에 대한 이해</li>
-          <li>접근성을 고려한 마크업</li>
-        </Skill>
-        <Skill>
-          <Icon icon={faCss3} />
-          <h3>CSS</h3>
-          <li>mediaQuery를 사용한 반응형 스타일링</li>
-          <li>flex, grid 를 활용한 레이아웃</li>
-          <li>
-            Post CSS를 이용한 모듈화, styled-components를 이용한 컴포넌트
-            스타일링
-          </li>
-          <li>BEM 방법론 적용</li>
-        </Skill>
-        <Skill>
-          <Icon icon={faJs} />
-          <h3>JavaScript</h3>
-          <li>ES6 문법</li>
-          <li>Vanilla JS로 동적인 웹앱 개발 </li>
-          <li>Rest API 활용한 웹앱 개발</li>
-          <li>성능 최적화를 위한 브라우저 런타임 환경 이해</li>
-        </Skill>
-        <Skill>
-          <Icon icon={faReact} />
-          <h3>React</h3>
-          <li>React 기반의 SPA 개발 </li>
-          <li>React Hooks 사용, 함수 컴포넌트 개발에 익숙함</li>
-          <li>React Router, firebase 등 라이브러리 사용 경험</li>
-        </Skill>
-      </SkillsBox>
-    </Container>
+    <Section>
+      <Title>Skills and Experience</Title>
+      <Container>
+        <SkillsBox>
+          <Skill>
+            <Icon icon={faHtml5} />
+            <h3>HTML</h3>
+            <li>
+              시멘틱 태그에 대해 이해하고 접근성을 고려하기 위해 노력합니다.
+            </li>
+          </Skill>
+          <Skill>
+            <Icon icon={faCss3} />
+            <h3>CSS</h3>
+            <li>mediaQuery를 사용한 반응형 스타일링</li>
+            <li>flex, grid 를 활용한 레이아웃</li>
+            <li>
+              Post CSS를 이용한 모듈화, styled-components를 이용한 컴포넌트
+              스타일링
+            </li>
+            <li>BEM 방법론 적용</li>
+          </Skill>
+          <Skill>
+            <Icon icon={faJs} />
+            <h3>JavaScript</h3>
+            <li>ES6 문법</li>
+            <li>Vanilla JS로 동적인 웹앱 개발 </li>
+            <li>Rest API 활용한 웹앱 개발</li>
+            <li>성능 최적화를 위한 브라우저 런타임 환경 이해</li>
+          </Skill>
+          <Skill>
+            <Icon icon={faReact} />
+            <h3>React</h3>
+            <li>React 기반의 SPA 개발 </li>
+            <li>React Hooks 사용, 함수 컴포넌트 개발</li>
+            <li>React Router, firebase 등 라이브러리 사용 경험</li>
+          </Skill>
+          <Skill>
+            <Icon icon={faJava} />
+            <h3>Java</h3>
+            <li></li>
+          </Skill>
+          <Skill>
+            <Icon icon={faTools} />
+            <h3>Tools</h3>
+            <li>Git, GitKraken</li>
+            <li>VS Code, Eclipse</li>
+            <li>Slack</li>
+            <li>Postman</li>
+          </Skill>
+        </SkillsBox>
+      </Container>
+    </Section>
   );
 };
 

@@ -4,7 +4,8 @@ const colors = {
   black: '#222831',
   white: '',
   mint: '#82CBC4',
-  silver: '#EEEEEE'
+  silver: '#EEEEEE',
+  yellow: '#fff59d'
 };
 
 const fonts = {
@@ -18,7 +19,8 @@ const darkThemeColors = {
   ...colors,
   bgColor: colors.black,
   baseColor: colors.silver,
-  pointColor: colors.mint
+  pointColor: colors.mint,
+  pointColor2: colors.yellow
 };
 
 const defaultTheme = {};

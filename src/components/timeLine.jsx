@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { Container, Title } from '../styles/styledComponent';
+import { Section, Title } from '../styles/styledComponent';
 
 const pointColor = css`
   ${({ theme }) =>
@@ -52,7 +52,7 @@ const History = styled.p`
 
 const Timeline = props => {
   return (
-    <Container>
+    <Section>
       <Title>Timeline</Title>
       <TimelineContainer>
         <Item date='2021.5 ~ 현재'>
@@ -74,7 +74,7 @@ const Timeline = props => {
           <History>대전과학기술대학교 간호학부 졸업</History>
         </Item>
       </TimelineContainer>
-    </Container>
+    </Section>
   );
 };
 

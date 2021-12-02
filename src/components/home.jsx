@@ -1,8 +1,8 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { Container } from '../styles/styledComponent';
+import { Section } from '../styles/styledComponent';
 
-const HomeContainer = styled(Container)`
+const HomeSection = styled(Section)`
   align-items: center;
   text-align: center;
 `;
@@ -22,7 +22,7 @@ const Name = styled.span`
 
 const Home = props => {
   return (
-    <HomeContainer>
+    <HomeSection>
       <StyledH1>
         안녕하세요!
         <br />
@@ -30,7 +30,7 @@ const Home = props => {
         <Name>이지수</Name>입니다.
       </StyledH1>
       <img src='/imgs/jisoo-emoji-macbook.png' />
-    </HomeContainer>
+    </HomeSection>
   );
 };
 

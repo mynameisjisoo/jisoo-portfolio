@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { Container, Title } from '../styles/styledComponent';
+import { Section, Title } from '../styles/styledComponent';
 
 const Image = styled.img`
   width: 50rem;
@@ -19,7 +19,7 @@ const Description = styled.p`
 
 const AboutMe = ({ theme, ...rest }) => {
   return (
-    <Container theme={theme} {...rest}>
+    <Section theme={theme} {...rest}>
       <Title>About Me</Title>
       <Content>
         <Image src='/imgs/profile-resize.jpg'></Image>
@@ -41,7 +41,7 @@ const AboutMe = ({ theme, ...rest }) => {
           <br />
         </Description>
       </Content>
-    </Container>
+    </Section>
   );
 };
 

@@ -111,7 +111,7 @@ const Navbar = ({ theme, ...rest }) => {
           <MenuItem>About Me</MenuItem>
           <MenuItem>Timeline</MenuItem>
           <MenuItem>Skills</MenuItem>
-          <MenuItem>Works</MenuItem>
+          <MenuItem>Project</MenuItem>
           <MenuItem>Contact</MenuItem>
         </Menu>
         <ThemeButton

@@ -3,6 +3,7 @@ import './app.css';
 import AboutMe from './components/aboutMe';
 import Home from './components/home';
 import Navbar from './components/navbar';
+import Project from './components/project';
 import Skills from './components/skills';
 import Timeline from './components/timeline';
 import GlobalStyle from './styles/globalStyle';
@@ -30,6 +31,7 @@ function App() {
         <AboutMe />
         <Timeline />
         <Skills />
+        <Project />
       </Container>
     </ThemeProvider>
   );

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { Section, Title } from '../styles/styledComponent';
+import Test from './test';
 
 const Category = styled.div`
   display: flex;
@@ -27,75 +28,84 @@ const Button = styled.button`
   }
 `;
 
-const Item = styled.div``;
+const Projects = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
+const Item = styled.article`
+  background-color: black;
+  text-align: center;
+  margin: 1.5rem;
+  padding: 2rem;
+  width: 20rem;
+
+  /* display: flex; */
+  /* justify-content: center; */
+  & img {
+    width: 100%;
+  }
+`;
 const Project = props => {
   const data = {
-    javascript: {
-      carrot: {
+    javascript: [
+      {
+        name: 'carrot',
         src: 'imgs/favicon-tiny.png',
         link: 'www.google.com',
         description: 'carrot'
       },
-      miniShoppingmall: {
+      {
+        name: 'miniShoppingmall',
         src: 'imgs/favicon-tiny.png',
         link: 'www.naver.com',
         description: 'shopping'
       }
-    },
-    react: {
-      habbitTracker: {
+    ],
+    react: [
+      {
+        name: 'habbitTracker',
         src: 'imgs/jisoo-emoji.png',
         link: 'www.naver.com',
         description: 'habbit'
       },
-      sootube: {
+      {
+        name: 'sootube',
         src: 'imgs/jisoo-emoji.png',
         link: 'www.naver.com',
         description: 'youtube'
       },
-      cardMaker: {
+      {
+        name: 'cardMaker',
         src: 'imgs/jisoo-emoji.png',
         link: 'www.naver.com',
         description: 'cardMaker'
       },
-      movieDiary: {
+      {
+        name: 'movieDiary',
         src: 'imgs/jisoo-emoji.png',
         link: 'www.naver.com',
         description: 'movieDiary'
       }
-    },
-    java: {
-      pooGame: {
+    ],
+    java: [
+      {
+        name: 'pooGame',
         src: 'imgs/jisoo-emoji.png',
         link: 'www.naver.com',
         description: 'movieDiary'
       }
-    }
+    ]
   };
 
-  // const [activeButton, setActiveButton] = useState('All');
   const [selectedProject, setSelectedProject] = useState([]);
-
   const onButtonClick = e => {
     const selected = e.target.outerText.toLowerCase();
     if (!selected) {
       return;
     }
     setSelectedProject(data[selected]);
-    console.log(selectedProject);
-    // for (let key in data[selected]) {
-    //   const value = data[selected][key];
-    //   console.log(value);
-    // }
   };
-
-  useEffect(() => {
-    for (let key in selectedProject) {
-      const value = selectedProject[key];
-      console.log(value);
-    }
-  }, [selectedProject]);
 
   return (
     <Section>
@@ -106,8 +116,18 @@ const Project = props => {
         <Button>JavaScript</Button>
         <Button>React</Button>
         <Button>Java</Button>
-        {selectedProject}
       </Category>
+      <Projects>
+        {selectedProject &&
+          selectedProject.map(item => {
+            return (
+              <Item>
+                <h3>{item.name}</h3>
+                <img src={item.src} alt='' />
+              </Item>
+            );
+          })}
+      </Projects>
     </Section>
   );
 };

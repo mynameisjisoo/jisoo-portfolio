@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { Section, Title } from '../styles/styledComponent';
-import Test from './test';
 
 const Category = styled.div`
   display: flex;
   justify-content: center;
+  /* background-color: brown; */
+  margin: 2rem 1rem;
 `;
 
 const Button = styled.button`
@@ -14,7 +15,6 @@ const Button = styled.button`
   font-size: 1.6rem;
   font-family: ${({ theme }) => theme.fonts.family.eng};
   font-weight: bold;
-  /* color: ${({ theme }) => theme.darkThemeColors.baseColor}; */
   padding: 1rem 4rem;
   margin: 0 1rem;
   min-width: 15.5rem;
@@ -24,7 +24,7 @@ const Button = styled.button`
 
   &:hover {
     background-color: ${({ theme }) => theme.darkThemeColors.pointColor2};
-    /* color: black; */
+    color: black;
   }
 `;
 
@@ -33,32 +33,63 @@ const Projects = styled.div`
   justify-content: center;
 `;
 
-const Item = styled.article`
+const Item = styled.a`
+  color: white;
   background-color: black;
-  text-align: center;
-  margin: 1.5rem;
-  padding: 2rem;
-  width: 20rem;
 
-  /* display: flex; */
-  /* justify-content: center; */
+  text-align: center;
+  margin: 0.5rem;
+  padding: 1.5rem;
+  width: 20rem;
+  position: relative;
+  text-decoration: none;
+
+  & h3 {
+    margin: 0;
+  }
   & img {
     width: 100%;
   }
 `;
+
+const Description = styled.div`
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+  transform: translateY(15px);
+  transition: all 300ms ease-in;
+
+  h3 {
+    color: white;
+    align-self: center;
+  }
+
+  &:hover {
+    opacity: 0.8;
+    transform: translateY(0px);
+  }
+`;
+
 const Project = props => {
   const data = {
     javascript: [
       {
         name: 'carrot',
         src: 'imgs/favicon-tiny.png',
-        link: 'www.google.com',
+        link: 'https://www.google.com',
         description: 'carrot'
       },
       {
         name: 'miniShoppingmall',
         src: 'imgs/favicon-tiny.png',
-        link: 'www.naver.com',
+        link: 'https://www.naver.com',
         description: 'shopping'
       }
     ],
@@ -66,39 +97,39 @@ const Project = props => {
       {
         name: 'habbitTracker',
         src: 'imgs/jisoo-emoji.png',
-        link: 'www.naver.com',
+        link: 'https://www.naver.com',
         description: 'habbit'
       },
       {
         name: 'sootube',
         src: 'imgs/jisoo-emoji.png',
-        link: 'www.naver.com',
+        link: 'https://www.naver.com',
         description: 'youtube'
       },
       {
         name: 'cardMaker',
         src: 'imgs/jisoo-emoji.png',
-        link: 'www.naver.com',
+        link: 'https://www.naver.com',
         description: 'cardMaker'
       },
       {
         name: 'movieDiary',
         src: 'imgs/jisoo-emoji.png',
-        link: 'www.naver.com',
+        link: 'https://www.naver.com',
         description: 'movieDiary'
       }
     ],
     java: [
       {
-        name: 'pooGame',
+        name: '똥피하기게임',
         src: 'imgs/jisoo-emoji.png',
-        link: 'www.naver.com',
+        link: 'https://www.naver.com',
         description: 'movieDiary'
       }
     ]
   };
 
-  const [selectedProject, setSelectedProject] = useState([]);
+  const [selectedProject, setSelectedProject] = useState();
   const onButtonClick = e => {
     const selected = e.target.outerText.toLowerCase();
     if (!selected) {
@@ -106,7 +137,6 @@ const Project = props => {
     }
     setSelectedProject(data[selected]);
   };
-
   return (
     <Section>
       <Title>Project and Experience</Title>
@@ -121,9 +151,12 @@ const Project = props => {
         {selectedProject &&
           selectedProject.map(item => {
             return (
-              <Item>
+              <Item href={item.link} target='_blank'>
                 <h3>{item.name}</h3>
-                <img src={item.src} alt='' />
+                <img src={item.src} alt={item.name} />
+                <Description>
+                  <h3>{item.description}</h3>
+                </Description>
               </Item>
             );
           })}

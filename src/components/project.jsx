@@ -129,23 +129,42 @@ const Project = props => {
     ]
   };
 
-  const [selectedProject, setSelectedProject] = useState();
+  const setAllselected = () => {
+    const entireData = [];
+    let i = 0;
+    const keys = Object.keys(data);
+    for (let key in data) {
+      const values = data[key];
+      for (let value in values) {
+        entireData[i] = values[value];
+        i++;
+      }
+    }
+    return entireData;
+  };
+
+  const [selectedProject, setSelectedProject] = useState(setAllselected);
+
   const onButtonClick = e => {
-    const selected = e.target.outerText.toLowerCase();
+    const selected = e.target.value;
     if (!selected) {
+      return;
+    } else if (selected === 'all') {
+      setSelectedProject(setAllselected);
       return;
     }
     setSelectedProject(data[selected]);
   };
+
   return (
     <Section>
       <Title>Project and Experience</Title>
       <h1>Project</h1>
       <Category onClick={onButtonClick}>
-        <Button>All</Button>
-        <Button>JavaScript</Button>
-        <Button>React</Button>
-        <Button>Java</Button>
+        <Button value='all'>All</Button>
+        <Button value='javascript'>JavaScript</Button>
+        <Button value='react'>React</Button>
+        <Button value='java'>Java</Button>
       </Category>
       <Projects>
         {selectedProject &&

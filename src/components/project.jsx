@@ -2,20 +2,22 @@ import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { Section, Title } from '../styles/styledComponent';
 
+const Subtitle = styled.h1`
+  text-align: center;
+  margin: 0;
+`;
 const Category = styled.div`
   display: flex;
   justify-content: center;
-  /* background-color: brown; */
   margin: 2rem 1rem;
 `;
 
 const Button = styled.button`
-  /* border: solid 2px ${({ theme }) => theme.darkThemeColors.pointColor}; */
   border-radius: 1rem;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-family: ${({ theme }) => theme.fonts.family.eng};
   font-weight: bold;
-  padding: 1rem 4rem;
+  padding: 1rem 3rem;
   margin: 0 1rem;
   min-width: 15.5rem;
   cursor: pointer;
@@ -31,6 +33,9 @@ const Button = styled.button`
 const Projects = styled.div`
   display: flex;
   justify-content: center;
+  width: 100rem;
+  margin: auto;
+  flex-wrap: wrap;
 `;
 
 const Item = styled.a`
@@ -159,7 +164,7 @@ const Project = props => {
   return (
     <Section>
       <Title>Project and Experience</Title>
-      <h1>Project</h1>
+      <Subtitle>Projects</Subtitle>
       <Category onClick={onButtonClick}>
         <Button value='all'>All</Button>
         <Button value='javascript'>JavaScript</Button>

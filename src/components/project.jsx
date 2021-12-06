@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import { Section, Title } from '../styles/styledComponent';
 import ProjectItem from './projectItem';
+
+// import Swiper core and required modules
+import SwiperCore, { Autoplay, Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 // swiper bundle styles
 import 'swiper/swiper-bundle.min.css';
@@ -14,8 +17,7 @@ import 'swiper/swiper.min.css';
 import 'swiper/components/navigation/navigation.min.css';
 import 'swiper/components/pagination/pagination.min.css';
 
-// import Swiper core and required modules
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 const Subtitle = styled.h1`
   text-align: center;
@@ -45,24 +47,25 @@ const Button = styled.button`
   }
 `;
 
+const SwiperContainer = styled.div`
+  width: 75rem;
+`;
 const StyledSwiper = styled(Swiper)`
   display: flex;
-  justify-content: center;
-  width: 70rem;
-  height: 30rem;
+  /* justify-content: center; */
+  width: 75rem;
   /* height: fit-content; */
   margin: auto;
   background: gray;
+  align-items: center;
 `;
 
-const SlideWrapper = styled.div`
-  background-color: hotpink;
-`;
 const Slide = styled(SwiperSlide)`
-  background-color: honeydew;
-  padding: 1rem 2rem;
-  display: flex;
+  /* background-color: honeydew;
+  width: 30rem;
+  margin: 0 2rem;
   width: fit-content;
+  height: fit-content; */
   /* justify-content: center; */
 `;
 
@@ -157,26 +160,31 @@ const Project = props => {
       </Category>
 
       <StyledSwiper
-        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={10}
-        slidesPerView={1}
-        navigation
+        slidesPerView={3}
+        navigation={true}
         pagination={{
           clickable: true,
           // type: 'bullets'
           type: 'progressbar'
         }}
-        // grid={{ fill: 'row' }}
         onSwiper={swiper => console.log(swiper)}
+        onSlideChange={e => console.log(e)}
         loop
         Autoplay={{ delay: 1000 }}
       >
+        {/* <SwiperSlide>1</SwiperSlide>
+        <SwiperSlide>2</SwiperSlide> */}
         {selectedProject &&
           selectedProject.map(item => {
             return (
-              <Slide>
-                <ProjectItem item={item} />;
-              </Slide>
+              // <Slide>
+              // </Slide>
+              <SwiperSlide>
+                <div>{item.name}</div>
+                <ProjectItem item={item} />; //{' '}
+              </SwiperSlide>
             );
           })}
       </StyledSwiper>

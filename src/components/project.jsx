@@ -1,6 +1,21 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { Section, Title } from '../styles/styledComponent';
+import ProjectItem from './projectItem';
+
+// swiper bundle styles
+import 'swiper/swiper-bundle.min.css';
+
+// swiper core styles
+import 'swiper/swiper.min.css';
+
+// modules styles
+import 'swiper/components/navigation/navigation.min.css';
+import 'swiper/components/pagination/pagination.min.css';
+
+// import Swiper core and required modules
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
 const Subtitle = styled.h1`
   text-align: center;
@@ -30,56 +45,25 @@ const Button = styled.button`
   }
 `;
 
-const Projects = styled.div`
+const StyledSwiper = styled(Swiper)`
   display: flex;
   justify-content: center;
-  width: 100rem;
+  width: 70rem;
+  height: 30rem;
+  /* height: fit-content; */
   margin: auto;
-  flex-wrap: wrap;
+  background: gray;
 `;
 
-const Item = styled.a`
-  color: white;
-  background-color: black;
-
-  text-align: center;
-  margin: 0.5rem;
-  padding: 1.5rem;
-  width: 20rem;
-  position: relative;
-  text-decoration: none;
-
-  & h3 {
-    margin: 0;
-  }
-  & img {
-    width: 100%;
-  }
+const SlideWrapper = styled.div`
+  background-color: hotpink;
 `;
-
-const Description = styled.div`
-  background-color: black;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
+const Slide = styled(SwiperSlide)`
+  background-color: honeydew;
+  padding: 1rem 2rem;
   display: flex;
-  justify-content: center;
-  vertical-align: middle;
-  transform: translateY(15px);
-  transition: all 300ms ease-in;
-
-  h3 {
-    color: white;
-    align-self: center;
-  }
-
-  &:hover {
-    opacity: 0.8;
-    transform: translateY(0px);
-  }
+  width: fit-content;
+  /* justify-content: center; */
 `;
 
 const Project = props => {
@@ -171,20 +155,31 @@ const Project = props => {
         <Button value='react'>React</Button>
         <Button value='java'>Java</Button>
       </Category>
-      <Projects>
+
+      <StyledSwiper
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        spaceBetween={10}
+        slidesPerView={1}
+        navigation
+        pagination={{
+          clickable: true,
+          // type: 'bullets'
+          type: 'progressbar'
+        }}
+        // grid={{ fill: 'row' }}
+        onSwiper={swiper => console.log(swiper)}
+        loop
+        Autoplay={{ delay: 1000 }}
+      >
         {selectedProject &&
           selectedProject.map(item => {
             return (
-              <Item href={item.link} target='_blank'>
-                <h3>{item.name}</h3>
-                <img src={item.src} alt={item.name} />
-                <Description>
-                  <h3>{item.description}</h3>
-                </Description>
-              </Item>
+              <Slide>
+                <ProjectItem item={item} />;
+              </Slide>
             );
           })}
-      </Projects>
+      </StyledSwiper>
     </Section>
   );
 };

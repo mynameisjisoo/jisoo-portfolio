@@ -22,6 +22,7 @@ const Item = styled.a`
   & img {
     width: 100%;
   }
+  flex-shrink: 0;
 `;
 
 const Description = styled.div`

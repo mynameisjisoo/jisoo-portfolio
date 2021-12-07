@@ -13,6 +13,7 @@ import 'swiper/swiper.min.css';
 // modules styles
 import 'swiper/components/navigation/navigation.min.css';
 import 'swiper/components/pagination/pagination.min.css';
+import Slider from '@ant-design/react-slick';
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
@@ -20,10 +21,15 @@ const Subtitle = styled.h1`
   text-align: center;
   margin: 0;
 `;
+
 const Category = styled.div`
   display: flex;
   justify-content: center;
   margin: 2rem 1rem;
+
+  @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {
+    flex-direction: column;
+  }
 `;
 
 const Button = styled.button`
@@ -42,11 +48,15 @@ const Button = styled.button`
     background-color: ${({ theme }) => theme.darkThemeColors.pointColor2};
     color: black;
   }
+
+  @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {
+    margin: 0.3rem 0;
+  }
 `;
 
 const StyledSwiper = styled(Swiper)`
   display: flex;
-  width: 75rem;
+  width: 75%;
   height: 28rem;
   padding: 1rem 2rem;
   margin: auto;
@@ -62,6 +72,15 @@ const StyledSwiper = styled(Swiper)`
   .swiper-pagination-bullet-active {
     background-color: ${({ theme }) => theme.darkThemeColors.pointColor};
   }
+
+  @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {
+    width: 100%;
+  }
+`;
+
+const SlideWrapper = styled.div`
+  /* display: flex;
+  flex-shrink: 0; */
 `;
 
 const Project = props => {
@@ -145,17 +164,31 @@ const Project = props => {
 
   const slideSetting = {
     modules: [Navigation, Pagination, Autoplay],
-    spaceBetween: 10,
+    spaceBetween: 0,
     slidesPerView: 3,
     navigation: true,
     pagination: {
       clickable: true,
       type: 'bullets'
     },
-    onSwiper: swiper => console.log(swiper),
-    onSlideChange: e => console.log(e),
     slidesOffsetBefore: 10,
-    autoplay: { delay: 2500 }
+    slidesOffsetAfter: 10,
+    autoplay: { delay: 2500 },
+
+    breakpoints: {
+      640: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 40
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 0
+      }
+    }
   };
 
   return (
@@ -170,13 +203,15 @@ const Project = props => {
       </Category>
 
       <StyledSwiper {...slideSetting}>
-        {selectedProject.map(item => {
-          return (
-            <SwiperSlide>
-              <ProjectItem item={item} />
-            </SwiperSlide>
-          );
-        })}
+        <SlideWrapper>
+          {selectedProject.map(item => {
+            return (
+              <SwiperSlide>
+                <ProjectItem item={item} />
+              </SwiperSlide>
+            );
+          })}
+        </SlideWrapper>
       </StyledSwiper>
     </Section>
   );

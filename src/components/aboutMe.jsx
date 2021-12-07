@@ -2,19 +2,31 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { Section, Title } from '../styles/styledComponent';
 
-const Image = styled.img`
-  width: 50rem;
-`;
-
 const Content = styled.div`
   display: flex;
   align-items: center;
+  margin: auto;
+
+  @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {
+    flex-direction: column;
+  }
+`;
+
+const Image = styled.img`
+  width: 50%;
+
+  @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {
+    width: 100%;
+  }
 `;
 
 const Description = styled.p`
   padding: 3rem;
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {
+    padding: 2rem 0;
+  }
 `;
 
 const AboutMe = ({ theme, ...rest }) => {
@@ -24,7 +36,6 @@ const AboutMe = ({ theme, ...rest }) => {
       <Content>
         <Image src='/imgs/profile-resize.jpg'></Image>
         <Description>
-          {/* <p></p> */}
           생명을 다루는 숭고함에 반해 간호사가 되었습니다.
           <br />
           세상이 궁금해서 배낭을 매고 모험을 떠나 세계여행을 했습니다.

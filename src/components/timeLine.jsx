@@ -12,6 +12,10 @@ const pointColor = css`
 const TimelineContainer = styled.div`
   margin: 0 auto;
   transform: translateX(5rem);
+
+  @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {
+    transform: translateX(0);
+  }
 `;
 
 const Item = styled.div`

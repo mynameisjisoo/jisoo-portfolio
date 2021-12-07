@@ -5,6 +5,10 @@ export const Section = styled.section`
   padding: 3rem;
   justify-content: center;
   flex-direction: column;
+
+  @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {
+    padding: 1.5rem;
+  }
 `;
 
 export const Title = styled.h1`

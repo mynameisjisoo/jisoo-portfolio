@@ -7,9 +7,6 @@ import ProjectItem from './projectItem';
 import SwiperCore, { Autoplay, Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-// swiper bundle styles
-import 'swiper/swiper-bundle.min.css';
-
 // swiper core styles
 import 'swiper/swiper.min.css';
 
@@ -47,26 +44,24 @@ const Button = styled.button`
   }
 `;
 
-const SwiperContainer = styled.div`
-  width: 75rem;
-`;
 const StyledSwiper = styled(Swiper)`
   display: flex;
-  /* justify-content: center; */
   width: 75rem;
-  /* height: fit-content; */
+  height: 28rem;
+  padding: 1rem 2rem;
   margin: auto;
-  background: gray;
-  align-items: center;
-`;
 
-const Slide = styled(SwiperSlide)`
-  /* background-color: honeydew;
-  width: 30rem;
-  margin: 0 2rem;
-  width: fit-content;
-  height: fit-content; */
-  /* justify-content: center; */
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    color: ${({ theme }) => theme.darkThemeColors.pointColor};
+  }
+
+  .swiper-pagination-bullet {
+    background-color: silver;
+  }
+  .swiper-pagination-bullet-active {
+    background-color: ${({ theme }) => theme.darkThemeColors.pointColor};
+  }
 `;
 
 const Project = props => {
@@ -148,6 +143,21 @@ const Project = props => {
     setSelectedProject(data[selected]);
   };
 
+  const slideSetting = {
+    modules: [Navigation, Pagination, Autoplay],
+    spaceBetween: 10,
+    slidesPerView: 3,
+    navigation: true,
+    pagination: {
+      clickable: true,
+      type: 'bullets'
+    },
+    onSwiper: swiper => console.log(swiper),
+    onSlideChange: e => console.log(e),
+    slidesOffsetBefore: 10,
+    autoplay: { delay: 2500 }
+  };
+
   return (
     <Section>
       <Title>Project and Experience</Title>
@@ -159,34 +169,14 @@ const Project = props => {
         <Button value='java'>Java</Button>
       </Category>
 
-      <StyledSwiper
-        modules={[Navigation, Pagination, Autoplay]}
-        spaceBetween={10}
-        slidesPerView={3}
-        navigation={true}
-        pagination={{
-          clickable: true,
-          // type: 'bullets'
-          type: 'progressbar'
-        }}
-        onSwiper={swiper => console.log(swiper)}
-        onSlideChange={e => console.log(e)}
-        loop
-        Autoplay={{ delay: 1000 }}
-      >
-        {/* <SwiperSlide>1</SwiperSlide>
-        <SwiperSlide>2</SwiperSlide> */}
-        {selectedProject &&
-          selectedProject.map(item => {
-            return (
-              // <Slide>
-              // </Slide>
-              <SwiperSlide>
-                <div>{item.name}</div>
-                <ProjectItem item={item} />; //{' '}
-              </SwiperSlide>
-            );
-          })}
+      <StyledSwiper {...slideSetting}>
+        {selectedProject.map(item => {
+          return (
+            <SwiperSlide>
+              <ProjectItem item={item} />
+            </SwiperSlide>
+          );
+        })}
       </StyledSwiper>
     </Section>
   );

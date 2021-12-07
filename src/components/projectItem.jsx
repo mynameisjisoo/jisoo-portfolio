@@ -5,9 +5,10 @@ const Item = styled.a`
   color: white;
   background-color: black;
   text-align: center;
-  margin: 0.5rem;
+  margin: 0 1rem;
   padding: 1.5rem;
   width: 20rem;
+  height: 23rem;
   position: relative;
   text-decoration: none;
 

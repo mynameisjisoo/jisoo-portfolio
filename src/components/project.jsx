@@ -13,7 +13,6 @@ import 'swiper/swiper.min.css';
 // modules styles
 import 'swiper/components/navigation/navigation.min.css';
 import 'swiper/components/pagination/pagination.min.css';
-import Slider from '@ant-design/react-slick';
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
@@ -55,7 +54,6 @@ const Button = styled.button`
 `;
 
 const StyledSwiper = styled(Swiper)`
-  display: flex;
   width: 75%;
   height: 28rem;
   padding: 1rem 2rem;
@@ -76,11 +74,6 @@ const StyledSwiper = styled(Swiper)`
   @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {
     width: 100%;
   }
-`;
-
-const SlideWrapper = styled.div`
-  /* display: flex;
-  flex-shrink: 0; */
 `;
 
 const Project = props => {
@@ -138,7 +131,6 @@ const Project = props => {
   const setAllselected = () => {
     const entireData = [];
     let i = 0;
-    const keys = Object.keys(data);
     for (let key in data) {
       const values = data[key];
       for (let value in values) {
@@ -164,7 +156,7 @@ const Project = props => {
 
   const slideSetting = {
     modules: [Navigation, Pagination, Autoplay],
-    spaceBetween: 0,
+    spaceBetween: 10,
     slidesPerView: 3,
     navigation: true,
     pagination: {
@@ -172,21 +164,20 @@ const Project = props => {
       type: 'bullets'
     },
     slidesOffsetBefore: 10,
-    slidesOffsetAfter: 10,
     autoplay: { delay: 2500 },
 
     breakpoints: {
-      640: {
+      0: {
         slidesPerView: 1,
-        spaceBetween: 20
+        spaceBetween: 10
       },
-      768: {
+      640: {
         slidesPerView: 2,
-        spaceBetween: 40
+        spaceBetween: 10
       },
-      1024: {
+      767: {
         slidesPerView: 3,
-        spaceBetween: 0
+        spaceBetween: 10
       }
     }
   };
@@ -203,15 +194,13 @@ const Project = props => {
       </Category>
 
       <StyledSwiper {...slideSetting}>
-        <SlideWrapper>
-          {selectedProject.map(item => {
-            return (
-              <SwiperSlide>
-                <ProjectItem item={item} />
-              </SwiperSlide>
-            );
-          })}
-        </SlideWrapper>
+        {selectedProject.map(item => {
+          return (
+            <SwiperSlide>
+              <ProjectItem item={item} />
+            </SwiperSlide>
+          );
+        })}
       </StyledSwiper>
     </Section>
   );

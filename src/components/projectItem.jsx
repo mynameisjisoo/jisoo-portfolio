@@ -8,6 +8,7 @@ const Item = styled.a`
   margin: 0 1rem;
   padding: 1.5rem;
   width: 20rem;
+  min-width: 20rem;
   height: 23rem;
   position: relative;
   text-decoration: none;
@@ -22,7 +23,6 @@ const Item = styled.a`
   & img {
     width: 100%;
   }
-  flex-shrink: 0;
 `;
 
 const Description = styled.div`

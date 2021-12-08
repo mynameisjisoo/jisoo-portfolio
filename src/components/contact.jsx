@@ -4,6 +4,7 @@ import { Section, Title } from '../styles/styledComponent';
 
 const Wrapper = styled.div`
   margin: auto;
+  padding: 2rem 0;
 `;
 const ContactInfo = styled.li`
   text-align: center;
@@ -11,10 +12,11 @@ const ContactInfo = styled.li`
   margin: 0 1rem;
   display: inline-flex;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  font-family: ${({ theme }) => theme.fonts.family.eng};
 
   h3 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     margin: 0;
     margin-right: 0.5rem;
     color: ${({ theme }) => theme.darkThemeColors.pointColor};
@@ -28,6 +30,11 @@ const ContactInfo = styled.li`
     text-decoration: none;
     color: ${({ theme }) => theme.darkThemeColors.baseColor};
   }
+
+  p:hover,
+  a:hover {
+    color: ${({ theme }) => theme.darkThemeColors.pointColor2};
+  }
 `;
 const Contact = props => {
   return (
@@ -36,22 +43,24 @@ const Contact = props => {
 
       <Wrapper>
         <ContactInfo>
-          <h3>Phone</h3>
-          <p>010 2879 5776</p>
-        </ContactInfo>
-        <ContactInfo>
           <h3>Email</h3>
           <a href='mailto:devjisoolee@gmail.com'>devjisoolee@gmail.com</a>
         </ContactInfo>
         <ContactInfo>
           <h3>Github</h3>
-          <a href=''>devjisoolee@gmail.com</a>
+          <a href='https://github.com/mynameisjisoo'>
+            github.com/mynameisjisoo
+          </a>
         </ContactInfo>
         <ContactInfo>
           <h3>Notion</h3>
           <a href='https://devjisoo.notion.site/Programing-study-8375aac256864f0a9ec9b3a6c892e8c4'>
             Notion
           </a>
+        </ContactInfo>
+        <ContactInfo>
+          <h3>Phone</h3>
+          <p>010 2879 5776</p>
         </ContactInfo>
       </Wrapper>
     </Section>

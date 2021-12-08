@@ -1,5 +1,6 @@
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState } from 'react';
 import styled, { css, ThemeProvider } from 'styled-components';
 import './app.css';
 import AboutMe from './components/aboutMe';
@@ -24,20 +25,23 @@ const Container = styled.div`
 `;
 
 const ArrowUp = styled(FontAwesomeIcon)`
-  font-size: 3rem;
-  position: sticky;
+  font-size: 3.5rem;
+  position: fixed;
   bottom: 2rem;
   left: 95%;
   cursor: pointer;
   color: ${({ theme }) => theme.darkThemeColors.pointColor};
-
+  transition: all 300ms ease-in;
   &:hover {
+    transform: scale(1.1);
     color: ${({ theme }) => theme.darkThemeColors.pointColor2};
   }
 `;
 
 function App() {
   // const [theme, setTheme] = useState();
+  const [section, setSection] = useState();
+
   const scrollUp = () => {
     window.scroll({ top: 0, behavior: 'smooth' });
   };

@@ -1,16 +1,11 @@
 import { faBars, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Switch } from 'antd';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import styled, { css } from 'styled-components';
 
 const Nav = styled.nav`
-  ${({ theme }) => {
-    return css`
-      font-family: ${theme.fonts.family.eng};
-    `;
-  }};
-
+  font-family: ${({ theme }) => theme.fonts.family.eng};
   position: sticky;
   top: 0;
   display: flex;
@@ -21,7 +16,7 @@ const Nav = styled.nav`
   font-size: 1.5rem;
   font-weight: bold;
   background-color: black;
-
+  z-index: 100;
   @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {
     flex-direction: column;
   }
@@ -46,12 +41,9 @@ const MenuButton = styled.button`
   font-size: 2rem;
   display: none;
   margin: 2rem 0;
+  cursor: pointer;
 
-  ${({ theme }) => {
-    return css`
-      color: ${theme.colors.mint};
-    `;
-  }}
+  color: ${({ theme }) => theme.darkThemeColors.pointColor};
   @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {
     display: inline;
   }
@@ -60,6 +52,10 @@ const MenuButton = styled.button`
 const Menu = styled.ul`
   display: flex;
   justify-content: center;
+
+  .selected {
+    color: ${({ theme }) => theme.darkThemeColors.pointColor};
+  }
 
   @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {
     flex-direction: column;
@@ -92,9 +88,19 @@ const ThemeButton = styled(Switch)`
 
 const Navbar = ({ theme, ...rest }) => {
   const [responsive, setResponsive] = useState(false);
-
-  const onClick = () => {
+  const menuRef = useRef();
+  const showMenuItem = () => {
     setResponsive(!responsive);
+  };
+  const onMenuClick = e => {
+    const target = e.target.attributes;
+    if (!target.value) {
+      return;
+    }
+    menuRef.current.childNodes.forEach(element =>
+      element.classList.remove('selected')
+    );
+    e.target.classList.add('selected');
   };
 
   return (
@@ -103,16 +109,16 @@ const Navbar = ({ theme, ...rest }) => {
         <Logodiv>
           <Logo src='/imgs/favicon-tiny.png'></Logo>
           <MenuButton>
-            <FontAwesomeIcon icon={faBars} onClick={onClick} />
+            <FontAwesomeIcon icon={faBars} onClick={showMenuItem} />
           </MenuButton>
         </Logodiv>
-        <Menu responsive={responsive}>
-          <MenuItem>Home</MenuItem>
-          <MenuItem>About Me</MenuItem>
-          <MenuItem>Timeline</MenuItem>
-          <MenuItem>Skills</MenuItem>
-          <MenuItem>Project</MenuItem>
-          <MenuItem>Contact</MenuItem>
+        <Menu responsive={responsive} onClick={onMenuClick} ref={menuRef}>
+          <MenuItem value='home'>Home</MenuItem>
+          <MenuItem value='aboutMe'>About Me</MenuItem>
+          <MenuItem value='timeLine'>Timeline</MenuItem>
+          <MenuItem value='skills'>Skills</MenuItem>
+          <MenuItem value='project'>Project</MenuItem>
+          <MenuItem value='contact'>Contact</MenuItem>
         </Menu>
         <ThemeButton
           responsive={responsive}

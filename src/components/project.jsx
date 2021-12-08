@@ -24,7 +24,8 @@ const Subtitle = styled.h1`
 const Category = styled.div`
   display: flex;
   justify-content: center;
-  margin: 2rem 1rem;
+  margin: 2rem 0;
+  align-items: center;
 
   @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {
     flex-direction: column;
@@ -36,9 +37,9 @@ const Button = styled.button`
   font-size: 1.5rem;
   font-family: ${({ theme }) => theme.fonts.family.eng};
   font-weight: bold;
-  padding: 1rem 3rem;
+  padding: 1rem 2rem;
   margin: 0 1rem;
-  min-width: 15.5rem;
+  min-width: 15rem;
   cursor: pointer;
   background-color: ${({ theme }) => theme.darkThemeColors.pointColor};
   transition: all 300ms ease-in;
@@ -50,6 +51,7 @@ const Button = styled.button`
 
   @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {
     margin: 0.3rem 0;
+    width: 80%;
   }
 `;
 

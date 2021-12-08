@@ -1,9 +1,10 @@
 const colors = {
-  black: '#222831',
+  navy: '#222831',
   white: '',
   mint: '#82CBC4',
   silver: '#EEEEEE',
-  yellow: '#fff59d'
+  yellow: '#fff59d',
+  black: '#000000'
 };
 
 const fonts = {
@@ -15,10 +16,11 @@ const fonts = {
 
 const darkThemeColors = {
   ...colors,
-  bgColor: colors.black,
+  bgColor: colors.navy,
   baseColor: colors.silver,
   pointColor: colors.mint,
-  pointColor2: colors.yellow
+  pointColor2: colors.yellow,
+  navbarColor: colors.black
 };
 
 const defaultTheme = {};

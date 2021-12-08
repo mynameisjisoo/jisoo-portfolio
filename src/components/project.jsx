@@ -192,7 +192,6 @@ const Project = props => {
         <Button value='react'>React</Button>
         <Button value='java'>Java</Button>
       </Category>
-
       <StyledSwiper {...slideSetting}>
         {selectedProject.map(item => {
           return (

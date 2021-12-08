@@ -23,10 +23,24 @@ const Container = styled.div`
   }};
 `;
 
-const ArrowUp = styled(FontAwesomeIcon)``;
+const ArrowUp = styled(FontAwesomeIcon)`
+  font-size: 3rem;
+  position: sticky;
+  bottom: 2rem;
+  left: 95%;
+  cursor: pointer;
+  color: ${({ theme }) => theme.darkThemeColors.pointColor};
+
+  &:hover {
+    color: ${({ theme }) => theme.darkThemeColors.pointColor2};
+  }
+`;
 
 function App() {
   // const [theme, setTheme] = useState();
+  const scrollUp = () => {
+    window.scroll({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -39,8 +53,8 @@ function App() {
         <Skills />
         <Project />
         <Contact />
+        <ArrowUp icon={faArrowUp} onClick={scrollUp} />
         <FooterSection />
-        <ArrowUp icon={faArrowUp} />
       </Container>
     </ThemeProvider>
   );

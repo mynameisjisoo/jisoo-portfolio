@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import { Section, Title } from '../styles/styledComponent';
 
@@ -36,9 +36,9 @@ const ContactInfo = styled.li`
     color: ${({ theme }) => theme.darkThemeColors.pointColor2};
   }
 `;
-const Contact = props => {
+const Contact = forwardRef(({}, ref) => {
   return (
-    <Section>
+    <Section ref={ref}>
       <Title>Contact</Title>
 
       <Wrapper>
@@ -65,6 +65,6 @@ const Contact = props => {
       </Wrapper>
     </Section>
   );
-};
+});
 
 export default Contact;

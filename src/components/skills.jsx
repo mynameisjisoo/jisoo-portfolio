@@ -7,7 +7,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { faTools } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import { Section, Title } from '../styles/styledComponent';
 
@@ -49,9 +49,9 @@ const Icon = styled(FontAwesomeIcon)`
   }
 `;
 
-const Skills = props => {
+const Skills = forwardRef(({}, ref) => {
   return (
-    <Section>
+    <Section ref={ref}>
       <Title>Skills</Title>
       <SkillsBox>
         <Skill>
@@ -103,6 +103,6 @@ const Skills = props => {
       </SkillsBox>
     </Section>
   );
-};
+});
 
 export default Skills;

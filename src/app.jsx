@@ -1,6 +1,6 @@
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import styled, { css, ThemeProvider } from 'styled-components';
 import './app.css';
 import AboutMe from './components/aboutMe';
@@ -40,23 +40,35 @@ const ArrowUp = styled(FontAwesomeIcon)`
 
 function App() {
   // const [theme, setTheme] = useState();
-  const [section, setSection] = useState();
+  const [section, setSection] = useState('home');
+
+  const homeRef = useRef();
+  const aboutMeRef = useRef();
+  const timelineRef = useRef();
+  const skillsRef = useRef();
+  const projectRef = useRef();
+  const contactRef = useRef();
 
   const scrollUp = () => {
     window.scroll({ top: 0, behavior: 'smooth' });
+  };
+
+  const scrollIntoSection = menu => {
+    const location = eval(`${menu}Ref`).current.offsetTop - 96;
+    window.scroll({ top: location, behavior: 'smooth' });
   };
 
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Container>
-        <Navbar />
-        <Home />
-        <AboutMe />
-        <Timeline />
-        <Skills />
-        <Project />
-        <Contact />
+        <Navbar scrollIntoSection={scrollIntoSection} />
+        <Home ref={homeRef} />
+        <AboutMe ref={aboutMeRef} />
+        <Timeline ref={timelineRef} />
+        <Skills ref={skillsRef} />
+        <Project ref={projectRef} />
+        <Contact ref={contactRef} />
         <ArrowUp icon={faArrowUp} onClick={scrollUp} />
         <FooterSection />
       </Container>

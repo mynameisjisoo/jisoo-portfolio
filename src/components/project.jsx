@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { forwardRef, useState } from 'react';
 import styled from 'styled-components';
 import { Section, Title } from '../styles/styledComponent';
 import ProjectItem from './projectItem';
@@ -78,7 +78,7 @@ const StyledSwiper = styled(Swiper)`
   }
 `;
 
-const Project = props => {
+const Project = forwardRef(({}, ref) => {
   const data = {
     javascript: [
       {
@@ -185,7 +185,7 @@ const Project = props => {
   };
 
   return (
-    <Section>
+    <Section ref={ref}>
       <Title>Project and Experience</Title>
       <Subtitle>Projects</Subtitle>
       <Category onClick={onButtonClick}>
@@ -205,6 +205,6 @@ const Project = props => {
       </StyledSwiper>
     </Section>
   );
-};
+});
 
 export default Project;

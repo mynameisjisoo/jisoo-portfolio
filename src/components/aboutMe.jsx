@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 import { Section, Title } from '../styles/styledComponent';
 
@@ -29,9 +29,9 @@ const Description = styled.p`
   }
 `;
 
-const AboutMe = ({ theme, ...rest }) => {
+const AboutMe = forwardRef(({ theme, ...rest }, ref) => {
   return (
-    <Section theme={theme} {...rest}>
+    <Section theme={theme} {...rest} ref={ref}>
       <Title>About Me</Title>
       <Content>
         <Image src='/imgs/profile-resize.jpg'></Image>
@@ -54,6 +54,6 @@ const AboutMe = ({ theme, ...rest }) => {
       </Content>
     </Section>
   );
-};
+});
 
 export default AboutMe;

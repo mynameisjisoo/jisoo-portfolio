@@ -1,7 +1,7 @@
 import { faBars, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Switch } from 'antd';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 
 const Nav = styled.nav`
@@ -86,17 +86,19 @@ const ThemeButton = styled(Switch)`
   }
 `;
 
-const Navbar = ({ theme, ...rest }) => {
+const Navbar = ({ theme, scrollIntoSection, ...rest }) => {
   const [responsive, setResponsive] = useState(false);
   const menuRef = useRef();
   const showMenuItem = () => {
     setResponsive(!responsive);
   };
+
   const onMenuClick = e => {
     const target = e.target.attributes;
     if (!target.value) {
       return;
     }
+    scrollIntoSection(target.value.value);
     menuRef.current.childNodes.forEach(element =>
       element.classList.remove('selected')
     );
@@ -113,9 +115,11 @@ const Navbar = ({ theme, ...rest }) => {
           </MenuButton>
         </Logodiv>
         <Menu responsive={responsive} onClick={onMenuClick} ref={menuRef}>
-          <MenuItem value='home'>Home</MenuItem>
+          <MenuItem value='home' className={'selected'}>
+            Home
+          </MenuItem>
           <MenuItem value='aboutMe'>About Me</MenuItem>
-          <MenuItem value='timeLine'>Timeline</MenuItem>
+          <MenuItem value='timeline'>Timeline</MenuItem>
           <MenuItem value='skills'>Skills</MenuItem>
           <MenuItem value='project'>Project</MenuItem>
           <MenuItem value='contact'>Contact</MenuItem>

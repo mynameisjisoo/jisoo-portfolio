@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 import { Section, Title } from '../styles/styledComponent';
 
@@ -54,9 +54,9 @@ const History = styled.p`
   display: flex;
 `;
 
-const Timeline = props => {
+const Timeline = forwardRef(({}, ref) => {
   return (
-    <Section>
+    <Section ref={ref}>
       <Title>Timeline</Title>
       <TimelineContainer>
         <Item date='2021.5 ~ 현재'>
@@ -80,6 +80,6 @@ const Timeline = props => {
       </TimelineContainer>
     </Section>
   );
-};
+});
 
 export default Timeline;

@@ -1,7 +1,13 @@
 import { faBars, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Switch } from 'antd';
-import React, { useState, useRef, forwardRef, useEffect } from 'react';
+import React, {
+  useState,
+  useRef,
+  forwardRef,
+  useEffect,
+  useImperativeHandle
+} from 'react';
 import styled from 'styled-components';
 
 const Nav = styled.nav`
@@ -115,7 +121,7 @@ const Navbar = forwardRef(({ theme, scrollIntoSection, ...rest }, ref) => {
     if (!target.id) {
       return;
     }
-    console.log(e);
+    console.log(e.target);
     scrollIntoSection(target.id);
     addSelectedClass(e.target);
   };
@@ -134,12 +140,16 @@ const Navbar = forwardRef(({ theme, scrollIntoSection, ...rest }, ref) => {
   }, [selectedNavItem]);
 
   const addSelectedClass = clickedItem => {
-    console.log(selectedNavItem);
     selectedNavItem.current.classList.remove('selected');
-    console.log(selectedNavItem);
     setSelectedNavItem(navItem[clickedItem.id]);
   };
 
+  useImperativeHandle(ref, () => ({
+    addSelectedClass(currentSectionId) {
+      selectedNavItem.current.classList.remove('selected');
+      setSelectedNavItem(navItem[currentSectionId]);
+    }
+  }));
   return (
     <>
       <Nav theme={theme} {...rest}>

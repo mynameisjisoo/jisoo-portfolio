@@ -52,20 +52,19 @@ function App() {
   const contactRef = useRef();
 
   const refs = [
-    homeRef.current,
-    aboutMeRef.current,
-    timelineRef.current,
-    skillsRef.current,
-    projectRef.current,
-    contactRef.current
+    homeRef,
+    aboutMeRef,
+    timelineRef,
+    skillsRef,
+    projectRef,
+    contactRef
   ];
-
   const scrollToTop = () => {
     window.scroll({ top: 0, behavior: 'smooth' });
   };
 
-  const scrollIntoSection = menu => {
-    const location = eval(`${menu}Ref`).current.offsetTop - 96;
+  const scrollIntoSection = selectedSection => {
+    const location = eval(`${selectedSection}Ref`).current.offsetTop - 96;
     window.scroll({ top: location, behavior: 'smooth' });
   };
 
@@ -77,26 +76,39 @@ function App() {
 
   const observerCallback = (entries, observer) => {
     entries.forEach(entry => {
-      console.log(entry.target);
-      //화면밖으로 나가고, 조금이라도 화면에 들어온 것에 한해서
-      // if (!entry.isIntersecting && entry.intersectionRatio > 0) {
-      // const index = sectionIds.indexOf(`#${entry.target.id}`);
+      // if(entry.isIntersecting)
+      // console.log(entry.target);
+      //화면 밖으로 완전 나가는 섹션
+      if (!entry.isIntersecting && entry.intersectionRatio > 0) {
+        //navbar에 메소드 넣기?(state 변경, )
+        // const index = sectionIds.indexOf(`#${entry.target.id}`);
+      }
       //스크롤링이 아래로 되어서 페이지가 올라옴
-      // if (entry.boundingClientRect.y < 0) {
-      //   // selectedNavIndex = index + 1;
-      // } else {
-      //   // selectedNavIndex = index - 1;
-      // }
+      if (entry.boundingClientRect.y < 0) {
+        console.log(entry.target);
+        navMenuRef.current.addSelectedClass(entry.target.id);
+        // selectedNavIndex = index + 1;
+      } else {
+        // selectedNavIndex = index - 1;
+      }
       // }
     });
   };
-  const observer = new IntersectionObserver(observerCallback, observerOptions);
-  // refs.forEach(ref => observer.observe(ref));
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
+    // refs.forEach(ref => observer.observe(ref.current));
+  });
 
   window.addEventListener('scroll', () => {
     if (window.scrollY === 0) {
       //스크롤이 제일 위에 있을 때
       // selectedNavIndex = 0;
+      console.log(navMenuRef);
+      // navMenuRef && navMenuRef.current.addSelectedClass('home');
     } else if (
       //스크롤이 제일 아래있을 때: (=스크롤좌표(0.0)+화면안의 높이 === 사용자가 보는높이)
       Math.round(window.scrollY + window.innerHeight) >=

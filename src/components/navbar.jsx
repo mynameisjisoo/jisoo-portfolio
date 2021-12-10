@@ -1,8 +1,8 @@
 import { faBars, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Switch } from 'antd';
-import React, { useState, useRef, useEffect } from 'react';
-import styled, { css } from 'styled-components';
+import React, { useState, useRef, forwardRef, useEffect } from 'react';
+import styled from 'styled-components';
 
 const Nav = styled.nav`
   font-family: ${({ theme }) => theme.fonts.family.eng};
@@ -86,23 +86,58 @@ const ThemeButton = styled(Switch)`
   }
 `;
 
-const Navbar = ({ theme, scrollIntoSection, ...rest }) => {
+const Navbar = forwardRef(({ theme, scrollIntoSection, ...rest }, ref) => {
   const [responsive, setResponsive] = useState(false);
-  const menuRef = useRef();
+
+  const homeRef = useRef();
+  const aboutMeRef = useRef();
+  const timelineRef = useRef();
+  const skillsRef = useRef();
+  const projectRef = useRef();
+  const contactRef = useRef();
+
+  const navItem = {
+    home: homeRef,
+    aboutMe: aboutMeRef,
+    timeline: timelineRef,
+    skills: skillsRef,
+    project: projectRef,
+    contact: contactRef
+  };
+  const [selectedNavItem, setSelectedNavItem] = useState(navItem['home']);
+
   const showMenuItem = () => {
     setResponsive(!responsive);
   };
 
   const onMenuClick = e => {
-    const target = e.target.attributes;
-    if (!target.value) {
+    const target = e.target;
+    if (!target.id) {
       return;
     }
-    scrollIntoSection(target.value.value);
-    menuRef.current.childNodes.forEach(element =>
-      element.classList.remove('selected')
-    );
-    e.target.classList.add('selected');
+    console.log(e);
+    scrollIntoSection(target.id);
+    addSelectedClass(e.target);
+  };
+  // const onMenuClick = e => {
+  //   const target = e.target.attributes;
+  //   console.log(e);
+  //   if (!target.value) {
+  //     return;
+  //   }
+  //   scrollIntoSection(target.value.value);
+  //   addSelectedClass(e.target);
+  // };
+
+  useEffect(() => {
+    selectedNavItem.current.classList.add('selected');
+  }, [selectedNavItem]);
+
+  const addSelectedClass = clickedItem => {
+    console.log(selectedNavItem);
+    selectedNavItem.current.classList.remove('selected');
+    console.log(selectedNavItem);
+    setSelectedNavItem(navItem[clickedItem.id]);
   };
 
   return (
@@ -114,15 +149,25 @@ const Navbar = ({ theme, scrollIntoSection, ...rest }) => {
             <FontAwesomeIcon icon={faBars} onClick={showMenuItem} />
           </MenuButton>
         </Logodiv>
-        <Menu responsive={responsive} onClick={onMenuClick} ref={menuRef}>
-          <MenuItem value='home' className={'selected'}>
+        <Menu responsive={responsive} onClick={onMenuClick} ref={ref}>
+          <MenuItem id='home' ref={homeRef}>
             Home
           </MenuItem>
-          <MenuItem value='aboutMe'>About Me</MenuItem>
-          <MenuItem value='timeline'>Timeline</MenuItem>
-          <MenuItem value='skills'>Skills</MenuItem>
-          <MenuItem value='project'>Project</MenuItem>
-          <MenuItem value='contact'>Contact</MenuItem>
+          <MenuItem id='aboutMe' ref={aboutMeRef}>
+            About Me
+          </MenuItem>
+          <MenuItem id='timeline' ref={timelineRef}>
+            Timeline
+          </MenuItem>
+          <MenuItem id='skills' ref={skillsRef}>
+            Skills
+          </MenuItem>
+          <MenuItem id='project' ref={projectRef}>
+            Project
+          </MenuItem>
+          <MenuItem id='contact' ref={contactRef} i>
+            Contact
+          </MenuItem>
         </Menu>
         <ThemeButton
           responsive={responsive}
@@ -133,5 +178,5 @@ const Navbar = ({ theme, scrollIntoSection, ...rest }) => {
       </Nav>
     </>
   );
-};
+});
 export default Navbar;

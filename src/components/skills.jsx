@@ -51,7 +51,7 @@ const Icon = styled(FontAwesomeIcon)`
 
 const Skills = forwardRef(({}, ref) => {
   return (
-    <Section ref={ref}>
+    <Section ref={ref} id='skills'>
       <Title>Skills</Title>
       <SkillsBox>
         <Skill>

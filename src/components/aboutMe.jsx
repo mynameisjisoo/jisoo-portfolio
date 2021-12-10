@@ -31,7 +31,7 @@ const Description = styled.p`
 
 const AboutMe = forwardRef(({ theme, ...rest }, ref) => {
   return (
-    <Section theme={theme} {...rest} ref={ref}>
+    <Section theme={theme} {...rest} ref={ref} id='aboutme'>
       <Title>About Me</Title>
       <Content>
         <Image src='/imgs/profile-resize.jpg'></Image>

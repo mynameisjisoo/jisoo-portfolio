@@ -56,7 +56,7 @@ const History = styled.p`
 
 const Timeline = forwardRef(({}, ref) => {
   return (
-    <Section ref={ref}>
+    <Section ref={ref} id='timeline'>
       <Title>Timeline</Title>
       <TimelineContainer>
         <Item date='2021.5 ~ 현재'>

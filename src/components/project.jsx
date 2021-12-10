@@ -185,7 +185,7 @@ const Project = forwardRef(({}, ref) => {
   };
 
   return (
-    <Section ref={ref}>
+    <Section ref={ref} id='project'>
       <Title>Project and Experience</Title>
       <Subtitle>Projects</Subtitle>
       <Category onClick={onButtonClick}>
@@ -197,7 +197,7 @@ const Project = forwardRef(({}, ref) => {
       <StyledSwiper {...slideSetting}>
         {selectedProject.map(item => {
           return (
-            <SwiperSlide>
+            <SwiperSlide key={item.name}>
               <ProjectItem item={item} />
             </SwiperSlide>
           );

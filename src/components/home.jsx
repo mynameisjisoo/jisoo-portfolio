@@ -22,7 +22,7 @@ const Name = styled.span`
 
 const Home = forwardRef(({}, ref) => {
   return (
-    <HomeSection ref={ref}>
+    <HomeSection ref={ref} id='home'>
       <StyledH1>
         안녕하세요!
         <br />

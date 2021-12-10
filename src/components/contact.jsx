@@ -38,7 +38,7 @@ const ContactInfo = styled.li`
 `;
 const Contact = forwardRef(({}, ref) => {
   return (
-    <Section ref={ref}>
+    <Section ref={ref} id='contact'>
       <Title>Contact</Title>
 
       <Wrapper>

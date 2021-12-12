@@ -93,7 +93,10 @@ const ThemeButton = styled(Switch)`
 `;
 
 const Navbar = forwardRef(
-  ({ theme, scrollIntoSection, currentSection, ...rest }, ref) => {
+  (
+    { theme, scrollIntoSection, currentSection, handleCurrentSection, ...rest },
+    ref
+  ) => {
     const [responsive, setResponsive] = useState(false);
 
     const homeRef = useRef();
@@ -121,13 +124,20 @@ const Navbar = forwardRef(
 
     const onMenuClick = e => {
       const target = e.target;
-      if (!target.id) {
+      if (!target.id || target.id == currentSection) {
         return;
       }
-      console.log(e.target);
       scrollIntoSection(target.id);
-      addSelectedClass(e.target);
+      navItem[currentSection].current.classList.remove('selected');
+      handleCurrentSection(target.id);
     };
+
+    const changeCurrentSection = clickedNavItem => {};
+
+    useEffect(() => {
+      navItem[currentSection].current.classList.add('selected');
+    }, [currentSection]);
+
     // const onMenuClick = e => {
     //   const target = e.target.attributes;
     //   console.log(e);
@@ -138,21 +148,25 @@ const Navbar = forwardRef(
     //   addSelectedClass(e.target);
     // };
 
-    useEffect(() => {
-      selectedNavItem.current.classList.add('selected');
-    }, [selectedNavItem]);
+    // useEffect(() => {
+    //   selectedNavItem.current.classList.add('selected');
+    // }, [selectedNavItem]);
 
-    const addSelectedClass = clickedItem => {
-      selectedNavItem.current.classList.remove('selected');
-      setSelectedNavItem(navItem[clickedItem.id]);
-    };
+    // const addSelectedClass = clickedItem => {
+    //   console.log(selectedNavItem.current.id, currentSection);
+    //   if (selectedNavItem.current.id == clickedItem.id) {
+    //     return;
+    //   }
+    //   selectedNavItem.current.classList.remove('selected');
+    //   setSelectedNavItem(navItem[clickedItem.id]);
+    // };
 
-    useImperativeHandle(ref, () => ({
-      addSelectedClass(currentSectionId) {
-        selectedNavItem.current.classList.remove('selected');
-        setSelectedNavItem(navItem[currentSectionId]);
-      }
-    }));
+    // useImperativeHandle(ref, () => ({
+    //   addSelectedClass(currentSectionId) {
+    //     selectedNavItem.current.classList.remove('selected');
+    //     setSelectedNavItem(navItem[currentSectionId]);
+    //   }
+    // }));
     return (
       <>
         <Nav theme={theme} {...rest}>

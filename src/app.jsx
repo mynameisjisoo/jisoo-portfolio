@@ -41,7 +41,17 @@ const ArrowUp = styled(FontAwesomeIcon)`
 
 function App() {
   // const [theme, setTheme] = useState();
-  const [currentSection, setCurrentSection] = useState('home');
+
+  const sectionIds = [
+    'home',
+    'aboutMe',
+    'timeline',
+    'skills',
+    'project',
+    'contact'
+  ];
+
+  const [currentSection, setCurrentSection] = useState(sectionIds[0]);
   const navMenuRef = useRef();
 
   const homeRef = useRef();
@@ -68,6 +78,10 @@ function App() {
     window.scroll({ top: location, behavior: 'smooth' });
   };
 
+  const handleCurrentSection = clickedNavItem => {
+    setCurrentSection(clickedNavItem);
+  };
+
   const observerOptions = {
     root: null,
     rootMargin: '0px',
@@ -76,23 +90,24 @@ function App() {
 
   const observerCallback = (entries, observer) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        console.log(entry.target);
-      }
       //화면 밖으로 완전 나가는 섹션
       if (!entry.isIntersecting && entry.intersectionRatio > 0) {
+        const index = sectionIds.indexOf(entry.target.id);
         //navbar에 메소드 넣기?(state 변경, )
-        // const index = sectionIds.indexOf(`#${entry.target.id}`);
+        //스크롤링이 아래로 되어서 페이지가 올라옴
+        if (entry.boundingClientRect.y < 0) {
+          if (sectionIds[index + 1] == currentSection) {
+            console.log('dd');
+            return;
+          }
+          console.log(sectionIds[index + 1]);
+          // handleCurrentSection(sectionIds[index + 1]);
+        } else {
+          console.log(sectionIds[index - 1]);
+          // handleCurrentSection(sectionIds[index - 1]);
+          // selectedNavIndex = index - 1;
+        }
       }
-      //스크롤링이 아래로 되어서 페이지가 올라옴
-      if (entry.boundingClientRect.y < 0) {
-        console.log(entry.target);
-        navMenuRef.current.addSelectedClass(entry.target.id);
-        // selectedNavIndex = index + 1;
-      } else {
-        // selectedNavIndex = index - 1;
-      }
-      // }
     });
   };
 
@@ -127,6 +142,7 @@ function App() {
           scrollIntoSection={scrollIntoSection}
           ref={navMenuRef}
           currentSection={currentSection}
+          handleCurrentSection={handleCurrentSection}
         />
         <Home ref={homeRef} />
         <AboutMe ref={aboutMeRef} />

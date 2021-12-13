@@ -114,9 +114,6 @@ const Navbar = forwardRef(
       project: projectRef,
       contact: contactRef
     };
-    const [selectedNavItem, setSelectedNavItem] = useState(
-      navItem[currentSection]
-    );
 
     const showMenuItem = () => {
       setResponsive(!responsive);
@@ -132,41 +129,10 @@ const Navbar = forwardRef(
       handleCurrentSection(target.id);
     };
 
-    const changeCurrentSection = clickedNavItem => {};
-
     useEffect(() => {
       navItem[currentSection].current.classList.add('selected');
     }, [currentSection]);
 
-    // const onMenuClick = e => {
-    //   const target = e.target.attributes;
-    //   console.log(e);
-    //   if (!target.value) {
-    //     return;
-    //   }
-    //   scrollIntoSection(target.value.value);
-    //   addSelectedClass(e.target);
-    // };
-
-    // useEffect(() => {
-    //   selectedNavItem.current.classList.add('selected');
-    // }, [selectedNavItem]);
-
-    // const addSelectedClass = clickedItem => {
-    //   console.log(selectedNavItem.current.id, currentSection);
-    //   if (selectedNavItem.current.id == clickedItem.id) {
-    //     return;
-    //   }
-    //   selectedNavItem.current.classList.remove('selected');
-    //   setSelectedNavItem(navItem[clickedItem.id]);
-    // };
-
-    // useImperativeHandle(ref, () => ({
-    //   addSelectedClass(currentSectionId) {
-    //     selectedNavItem.current.classList.remove('selected');
-    //     setSelectedNavItem(navItem[currentSectionId]);
-    //   }
-    // }));
     return (
       <>
         <Nav theme={theme} {...rest}>

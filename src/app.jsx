@@ -51,7 +51,7 @@ function App() {
     'contact'
   ];
 
-  const [currentSection, setCurrentSection] = useState(sectionIds[0]);
+  const [currentSection, setCurrentSection] = useState('home');
   const navMenuRef = useRef();
 
   const homeRef = useRef();
@@ -82,58 +82,6 @@ function App() {
     setCurrentSection(clickedNavItem);
   };
 
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.3
-  };
-
-  const observerCallback = (entries, observer) => {
-    entries.forEach(entry => {
-      //화면 밖으로 완전 나가는 섹션
-      if (!entry.isIntersecting && entry.intersectionRatio > 0) {
-        const index = sectionIds.indexOf(entry.target.id);
-        //navbar에 메소드 넣기?(state 변경, )
-        //스크롤링이 아래로 되어서 페이지가 올라옴
-        if (entry.boundingClientRect.y < 0) {
-          if (sectionIds[index + 1] == currentSection) {
-            console.log('dd');
-            return;
-          }
-          console.log(sectionIds[index + 1]);
-          // handleCurrentSection(sectionIds[index + 1]);
-        } else {
-          console.log(sectionIds[index - 1]);
-          // handleCurrentSection(sectionIds[index - 1]);
-          // selectedNavIndex = index - 1;
-        }
-      }
-    });
-  };
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      observerCallback,
-      observerOptions
-    );
-    refs.forEach(ref => observer.observe(ref.current));
-  });
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY === 0) {
-      //스크롤이 제일 위에 있을 때
-      // selectedNavIndex = 0;
-      // console.log(navMenuRef);
-      // navMenuRef && navMenuRef.current.addSelectedClass('home');
-    } else if (
-      //스크롤이 제일 아래있을 때: (=스크롤좌표(0.0)+화면안의 높이 === 사용자가 보는높이)
-      Math.round(window.scrollY + window.innerHeight) >=
-      document.body.clientHeight
-    ) {
-      // selectedNavIndex = navItems.length - 1;
-    }
-    // selectNavItem(navItems[selectedNavIndex]);
-  });
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />

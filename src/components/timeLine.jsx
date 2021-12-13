@@ -1,19 +1,18 @@
 import React, { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 import { Section, Title } from '../styles/styledComponent';
+import theme from '../styles/theme';
 
 const pointColor = css`
-  ${({ theme }) =>
-    css`
-      ${theme.darkTheme.pointColor}
-    `}
+ ${({ theme }) => theme.pointColor};
+
 `;
 
 const TimelineContainer = styled.div`
   margin: 0 auto;
   transform: translateX(5rem);
 
-  @media ${({ theme }) => theme.device.tablet} {
+  @media ${theme.device.tablet} {
     transform: translateX(0);
   }
 `;

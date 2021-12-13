@@ -13,6 +13,7 @@ import 'swiper/swiper.min.css';
 // modules styles
 import 'swiper/components/navigation/navigation.min.css';
 import 'swiper/components/pagination/pagination.min.css';
+import theme from '../styles/theme';
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
@@ -27,7 +28,7 @@ const Category = styled.div`
   margin: 2rem 0;
   align-items: center;
 
-  @media ${({ theme }) => theme.device.tablet} {
+  @media ${theme.device.tablet} {
     flex-direction: column;
   }
 `;
@@ -35,21 +36,21 @@ const Category = styled.div`
 const Button = styled.button`
   border-radius: 1rem;
   font-size: 1.5rem;
-  font-family: ${({ theme }) => theme.fonts.family.eng};
+  font-family: ${theme.fonts.family.eng};
   font-weight: bold;
   padding: 1rem 2rem;
   margin: 0 1rem;
   min-width: 15rem;
   cursor: pointer;
-  background-color: ${({ theme }) => theme.darkTheme.pointColor};
+  background-color: ${({ theme }) => theme.pointColor};
   transition: all 300ms ease-in;
 
   &:hover {
-    background-color: ${({ theme }) => theme.darkTheme.pointColor2};
+    background-color: ${({ theme }) => theme.pointColor2};
     color: black;
   }
 
-  @media ${({ theme }) => theme.device.tablet} {
+  @media ${theme.device.tablet} {
     margin: 0.3rem 0;
     width: 80%;
   }
@@ -63,17 +64,17 @@ const StyledSwiper = styled(Swiper)`
 
   .swiper-button-next::after,
   .swiper-button-prev::after {
-    color: ${({ theme }) => theme.darkTheme.pointColor};
+    color: ${({ theme }) => theme.pointColor};
   }
 
   .swiper-pagination-bullet {
     background-color: silver;
   }
   .swiper-pagination-bullet-active {
-    background-color: ${({ theme }) => theme.darkTheme.pointColor};
+    background-color: ${({ theme }) => theme.pointColor};
   }
 
-  @media ${({ theme }) => theme.device.tablet} {
+  @media ${theme.device.tablet} {
     width: 100%;
   }
 `;

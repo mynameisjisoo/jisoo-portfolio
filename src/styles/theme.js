@@ -1,11 +1,15 @@
-const fonts = {
+export const fonts = {
   family: {
     eng: `'Red Hat Display', sans-serif;`,
     kor: `'IBM Plex Sans KR', sans-serif`
   }
 };
 
-const darkTheme = {
+export const device = {
+  tablet: `screen and (max-width:1023px )`
+};
+
+export const darkTheme = {
   bgColor: '#222831',
   baseColor: '#EEEEEE',
   pointColor: '#82CBC4',
@@ -13,7 +17,7 @@ const darkTheme = {
   navbarColor: '#2D4263'
 };
 
-const lightTheme = {
+export const lightTheme = {
   bgColor: '#FCF6F5',
   baseColor: '#000000',
   pointColor: '#9CC3D5',
@@ -21,14 +25,11 @@ const lightTheme = {
   navbarColor: '#7b9acc'
 };
 
-const device = {
-  tablet: `screen and (max-width:1023px )`
-};
-
 const theme = {
   fonts,
   device,
-  darkTheme
+  darkTheme,
+  lightTheme
 };
 
 export default theme;

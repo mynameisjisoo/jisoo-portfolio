@@ -12,36 +12,33 @@ import Project from './components/project';
 import Skills from './components/skills';
 import Timeline from './components/timeline';
 import GlobalStyle from './styles/globalStyle';
-import theme from './styles/theme';
+import theme, { darkTheme, lightTheme } from './styles/theme';
 
 const Container = styled.div`
-  ${({ theme }) => {
-    return css`
-      background-color: ${theme.darkTheme.bgColor};
-      color: ${theme.darkTheme.baseColor};
-      font-family: ${theme.fonts.family.kor};
-    `;
-  }};
+  color: ${({ theme }) => theme.baseColor};
+  background-color: ${({ theme }) => theme.bgColor};
+  font-family: ${theme.fonts.family.kor};
 `;
 
 const ArrowUp = styled(FontAwesomeIcon)`
   font-size: 3.5rem;
   position: fixed;
   bottom: 2.5rem;
-  right:1.5rem;
+  right: 1.5rem;
   cursor: pointer;
   z-index: 100;
-  color: ${({ theme }) => theme.darkTheme.pointColor};
+  color: ${({ theme }) => theme.pointColor};
   transition: all 300ms ease-in;
 
   &:hover {
     transform: scale(1.1);
-    color: ${({ theme }) => theme.darkTheme.pointColor2};
+    color: ${({ theme }) => theme.pointColor2};
   }
 `;
 
 function App() {
-  // const [theme, setTheme] = useState();
+  const [currentTheme, setCurrentTheme] = useState('lightTheme');
+  const theme = currentTheme === 'lightTheme' ? lightTheme : darkTheme;
 
   const [currentSection, setCurrentSection] = useState('home');
   const navMenuRef = useRef();
@@ -74,11 +71,15 @@ function App() {
     setCurrentSection(clickedNavItem);
   };
 
+  const changeTheme = selectedTheme => {
+    setCurrentTheme(selectedTheme);
+  };
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Container>
         <Navbar
+          changeTheme={changeTheme}
           scrollIntoSection={scrollIntoSection}
           ref={navMenuRef}
           currentSection={currentSection}

@@ -1,11 +1,13 @@
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import { Section, Title } from '../styles/styledComponent';
+import theme from '../styles/theme';
 
 const Wrapper = styled.div`
   margin: auto;
   padding: 2rem 0;
 `;
+
 const ContactInfo = styled.li`
   text-align: center;
   list-style: none;
@@ -13,13 +15,14 @@ const ContactInfo = styled.li`
   display: inline-flex;
   align-items: center;
   font-size: 1.3rem;
-  font-family: ${({ theme }) => theme.fonts.family.eng};
+  font-family: ${theme.fonts.family.eng};
 
   h3 {
     font-size: 1.6rem;
     margin: 0;
     margin-right: 0.5rem;
-    color: ${({ theme }) => theme.darkTheme.pointColor};
+    color: ${({ theme }) => theme.pointColor};
+
   }
 
   p {
@@ -28,12 +31,14 @@ const ContactInfo = styled.li`
 
   a {
     text-decoration: none;
-    color: ${({ theme }) => theme.darkTheme.baseColor};
+    color: ${({ theme }) => theme.baseColor};
+
   }
 
   p:hover,
   a:hover {
-    color: ${({ theme }) => theme.darkTheme.pointColor2};
+    color: ${({ theme }) => theme.pointColor2};
+
   }
 `;
 const Contact = forwardRef((param = {}, ref) => {

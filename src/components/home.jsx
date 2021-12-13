@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { Section } from '../styles/styledComponent';
+import theme from '../styles/theme';
 
 const HomeSection = styled(Section)`
   align-items: center;
@@ -12,13 +13,8 @@ const StyledH1 = styled.h1`
   font-size: 2.4rem;
 `;
 
-
 const Name = styled.span`
-  ${({ theme }) => {
-    return css`
-      color: ${({ theme }) => theme.darkTheme.pointColor};
-    `;
-  }}
+    color: ${({ theme }) => theme.pointColor};
 `;
 
 const Home = forwardRef((param = {}, ref) => {

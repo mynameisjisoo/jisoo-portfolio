@@ -4,7 +4,9 @@ const GlobalStyle = createGlobalStyle`
  * {
      box-sizing : border-box;
  }
-
+body{
+    background:${({ theme }) => theme.bgColor}
+}
  ul{
      list-style: none;
      padding-left: 0;

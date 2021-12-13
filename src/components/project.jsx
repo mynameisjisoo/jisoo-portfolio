@@ -41,11 +41,11 @@ const Button = styled.button`
   margin: 0 1rem;
   min-width: 15rem;
   cursor: pointer;
-  background-color: ${({ theme }) => theme.darkThemeColors.pointColor};
+  background-color: ${({ theme }) => theme.darkTheme.pointColor};
   transition: all 300ms ease-in;
 
   &:hover {
-    background-color: ${({ theme }) => theme.darkThemeColors.pointColor2};
+    background-color: ${({ theme }) => theme.darkTheme.pointColor2};
     color: black;
   }
 
@@ -63,14 +63,14 @@ const StyledSwiper = styled(Swiper)`
 
   .swiper-button-next::after,
   .swiper-button-prev::after {
-    color: ${({ theme }) => theme.darkThemeColors.pointColor};
+    color: ${({ theme }) => theme.darkTheme.pointColor};
   }
 
   .swiper-pagination-bullet {
     background-color: silver;
   }
   .swiper-pagination-bullet-active {
-    background-color: ${({ theme }) => theme.darkThemeColors.pointColor};
+    background-color: ${({ theme }) => theme.darkTheme.pointColor};
   }
 
   @media ${({ theme }) => theme.device.tablet} {

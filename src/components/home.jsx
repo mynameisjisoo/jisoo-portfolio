@@ -16,7 +16,7 @@ const StyledH1 = styled.h1`
 const Name = styled.span`
   ${({ theme }) => {
     return css`
-      color: ${({ theme }) => theme.darkThemeColors.pointColor};
+      color: ${({ theme }) => theme.darkTheme.pointColor};
     `;
   }}
 `;

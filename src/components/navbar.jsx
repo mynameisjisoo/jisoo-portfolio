@@ -15,7 +15,7 @@ const Nav = styled.nav`
   align-items: center;
   font-size: 1.5rem;
   font-weight: bold;
-  background-color:  ${({ theme }) => theme.darkThemeColors.navbarColor};
+  background-color:  ${({ theme }) => theme.darkTheme.navbarColor};
   z-index: 100;
   @media ${({ theme }) => theme.device.tablet} {
     flex-direction: column;
@@ -43,7 +43,7 @@ const MenuButton = styled.button`
   margin: 2rem 0;
   cursor: pointer;
 
-  color: ${({ theme }) => theme.darkThemeColors.pointColor};
+  color: ${({ theme }) => theme.darkTheme.pointColor};
   @media ${({ theme }) => theme.device.tablet} {
     display: inline;
   }
@@ -54,7 +54,7 @@ const Menu = styled.ul`
   justify-content: center;
 
   .selected {
-    color: ${({ theme }) => theme.darkThemeColors.pointColor};
+    color: ${({ theme }) => theme.darkTheme.pointColor};
   }
 
   @media ${({ theme }) => theme.device.tablet} {

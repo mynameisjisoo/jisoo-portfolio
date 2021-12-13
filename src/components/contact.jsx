@@ -19,7 +19,7 @@ const ContactInfo = styled.li`
     font-size: 1.6rem;
     margin: 0;
     margin-right: 0.5rem;
-    color: ${({ theme }) => theme.darkThemeColors.pointColor};
+    color: ${({ theme }) => theme.darkTheme.pointColor};
   }
 
   p {
@@ -28,12 +28,12 @@ const ContactInfo = styled.li`
 
   a {
     text-decoration: none;
-    color: ${({ theme }) => theme.darkThemeColors.baseColor};
+    color: ${({ theme }) => theme.darkTheme.baseColor};
   }
 
   p:hover,
   a:hover {
-    color: ${({ theme }) => theme.darkThemeColors.pointColor2};
+    color: ${({ theme }) => theme.darkTheme.pointColor2};
   }
 `;
 const Contact = forwardRef((param = {}, ref) => {

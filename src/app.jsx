@@ -17,8 +17,8 @@ import theme from './styles/theme';
 const Container = styled.div`
   ${({ theme }) => {
     return css`
-      background-color: ${theme.darkThemeColors.bgColor};
-      color: ${theme.darkThemeColors.baseColor};
+      background-color: ${theme.darkTheme.bgColor};
+      color: ${theme.darkTheme.baseColor};
       font-family: ${theme.fonts.family.kor};
     `;
   }};
@@ -31,12 +31,12 @@ const ArrowUp = styled(FontAwesomeIcon)`
   right:1.5rem;
   cursor: pointer;
   z-index: 100;
-  color: ${({ theme }) => theme.darkThemeColors.pointColor};
+  color: ${({ theme }) => theme.darkTheme.pointColor};
   transition: all 300ms ease-in;
 
   &:hover {
     transform: scale(1.1);
-    color: ${({ theme }) => theme.darkThemeColors.pointColor2};
+    color: ${({ theme }) => theme.darkTheme.pointColor2};
   }
 `;
 

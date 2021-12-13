@@ -5,7 +5,7 @@ import { Section, Title } from '../styles/styledComponent';
 const pointColor = css`
   ${({ theme }) =>
     css`
-      ${theme.darkThemeColors.pointColor}
+      ${theme.darkTheme.pointColor}
     `}
 `;
 

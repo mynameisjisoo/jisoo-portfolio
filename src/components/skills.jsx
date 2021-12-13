@@ -18,7 +18,7 @@ const SkillsBox = styled.section`
 `;
 
 const Skill = styled.article`
-  border: 3px solid ${({ theme }) => theme.darkThemeColors.pointColor};
+  border: 3px solid ${({ theme }) => theme.darkTheme.pointColor};
   border-radius: 1rem;
   margin: 1rem;
   width: 25rem;
@@ -40,11 +40,11 @@ const Skill = styled.article`
 const Icon = styled(FontAwesomeIcon)`
   font-size: 3rem;
   align-self: center;
-  color: ${({ theme }) => theme.darkThemeColors.pointColor2};
+  color: ${({ theme }) => theme.darkTheme.pointColor2};
   transition: all 300ms ease-out;
 
   &:hover {
-    color: ${({ theme }) => theme.darkThemeColors.pointColor};
+    color: ${({ theme }) => theme.darkTheme.pointColor};
     transform: rotate(20deg);
   }
 `;

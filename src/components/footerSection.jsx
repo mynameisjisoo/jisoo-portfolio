@@ -8,7 +8,7 @@ const StyledFooter = styled.footer`
     ${({ theme }) => {
     return css`
         font-family: ${theme.fonts.family.eng};
-        background-color: ${theme.darkThemeColors.navbarColor};
+        background-color: ${theme.darkTheme.navbarColor};
       `;
   }};
   `;

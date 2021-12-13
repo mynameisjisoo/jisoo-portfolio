@@ -1,13 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { Section } from '../styles/styledComponent';
 
 const FooterSection = props => {
-  const StyledSection = styled(Section)`
-    text-align: center;
-    padding-bottom: 0.6rem;
-  `;
-
   const StyledFooter = styled.footer`
     text-align: center;
     padding: 1rem 0;

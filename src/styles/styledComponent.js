@@ -6,7 +6,7 @@ export const Section = styled.section`
   justify-content: center;
   flex-direction: column;
 
-  @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {
+  @media ${({ theme }) => theme.device.tablet} {
     padding: 1.5rem;
   }
 `;

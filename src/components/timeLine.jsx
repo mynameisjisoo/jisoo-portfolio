@@ -13,7 +13,7 @@ const TimelineContainer = styled.div`
   margin: 0 auto;
   transform: translateX(5rem);
 
-  @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {
+  @media ${({ theme }) => theme.device.tablet} {
     transform: translateX(0);
   }
 `;
@@ -54,7 +54,7 @@ const History = styled.p`
   display: flex;
 `;
 
-const Timeline = forwardRef(({}, ref) => {
+const Timeline = forwardRef((param = {}, ref) => {
   return (
     <Section ref={ref} id='timeline'>
       <Title>Timeline</Title>

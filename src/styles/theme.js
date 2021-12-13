@@ -26,7 +26,6 @@ const darkThemeColors = {
 const defaultTheme = {};
 
 const device = {
-  mobile: `screen and (max-width:767px )`,
   tablet: `screen and (max-width:1023px )`
 };
 

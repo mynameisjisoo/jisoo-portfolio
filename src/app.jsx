@@ -1,6 +1,6 @@
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import styled, { css, ThemeProvider } from 'styled-components';
 import './app.css';
 import AboutMe from './components/aboutMe';
@@ -42,15 +42,6 @@ const ArrowUp = styled(FontAwesomeIcon)`
 function App() {
   // const [theme, setTheme] = useState();
 
-  const sectionIds = [
-    'home',
-    'aboutMe',
-    'timeline',
-    'skills',
-    'project',
-    'contact'
-  ];
-
   const [currentSection, setCurrentSection] = useState('home');
   const navMenuRef = useRef();
 
@@ -61,20 +52,20 @@ function App() {
   const projectRef = useRef();
   const contactRef = useRef();
 
-  const refs = [
-    homeRef,
-    aboutMeRef,
-    timelineRef,
-    skillsRef,
-    projectRef,
-    contactRef
-  ];
+  const refs = {
+    home: homeRef,
+    aboutMe: aboutMeRef,
+    timeline: timelineRef,
+    skills: skillsRef,
+    project: projectRef,
+    contact: contactRef
+  };
   const scrollToTop = () => {
     window.scroll({ top: 0, behavior: 'smooth' });
   };
 
   const scrollIntoSection = selectedSection => {
-    const location = eval(`${selectedSection}Ref`).current.offsetTop - 96;
+    const location = refs[selectedSection].current.offsetTop - 80;
     window.scroll({ top: location, behavior: 'smooth' });
   };
 

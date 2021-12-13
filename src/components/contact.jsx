@@ -36,7 +36,7 @@ const ContactInfo = styled.li`
     color: ${({ theme }) => theme.darkThemeColors.pointColor2};
   }
 `;
-const Contact = forwardRef(({}, ref) => {
+const Contact = forwardRef((param = {}, ref) => {
   return (
     <Section ref={ref} id='contact'>
       <Title>Contact</Title>

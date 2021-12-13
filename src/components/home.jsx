@@ -20,7 +20,7 @@ const Name = styled.span`
   }}
 `;
 
-const Home = forwardRef(({}, ref) => {
+const Home = forwardRef((param = {}, ref) => {
   return (
     <HomeSection ref={ref} id='home'>
       <StyledH1>
@@ -29,7 +29,7 @@ const Home = forwardRef(({}, ref) => {
         매일 한뼘 씩 성장하는 개발자 <br />
         <Name>이지수</Name>입니다.
       </StyledH1>
-      <img src='/imgs/jisoo-emoji-macbook.png' />
+      <img src='/imgs/jisoo-emoji-macbook.png' alt='jisoo-emoji' />
     </HomeSection>
   );
 });

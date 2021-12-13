@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { Section, Title } from '../styles/styledComponent';
 
 const Content = styled.div`
@@ -7,7 +7,7 @@ const Content = styled.div`
   align-items: center;
   margin: auto;
 
-  @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {
+  @media ${({ theme }) => theme.device.tablet} {
     flex-direction: column;
   }
 `;
@@ -15,7 +15,7 @@ const Content = styled.div`
 const Image = styled.img`
   width: 50%;
 
-  @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {
+  @media ${({ theme }) => theme.device.tablet} {
     width: 100%;
   }
 `;
@@ -24,7 +24,7 @@ const Description = styled.p`
   padding: 3rem;
   margin: 0;
   font-size: 1.2rem;
-  @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {
+  @media ${({ theme }) => theme.device.tablet} {
     padding: 2rem 0;
   }
 `;

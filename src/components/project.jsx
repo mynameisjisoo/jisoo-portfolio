@@ -27,7 +27,7 @@ const Category = styled.div`
   margin: 2rem 0;
   align-items: center;
 
-  @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {
+  @media ${({ theme }) => theme.device.tablet} {
     flex-direction: column;
   }
 `;
@@ -49,7 +49,7 @@ const Button = styled.button`
     color: black;
   }
 
-  @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {
+  @media ${({ theme }) => theme.device.tablet} {
     margin: 0.3rem 0;
     width: 80%;
   }
@@ -73,12 +73,12 @@ const StyledSwiper = styled(Swiper)`
     background-color: ${({ theme }) => theme.darkThemeColors.pointColor};
   }
 
-  @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {
+  @media ${({ theme }) => theme.device.tablet} {
     width: 100%;
   }
 `;
 
-const Project = forwardRef(({}, ref) => {
+const Project = forwardRef((param = {}, ref) => {
   const data = {
     javascript: [
       {

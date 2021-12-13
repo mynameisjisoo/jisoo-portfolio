@@ -49,7 +49,7 @@ const Icon = styled(FontAwesomeIcon)`
   }
 `;
 
-const Skills = forwardRef(({}, ref) => {
+const Skills = forwardRef((param = {}, ref) => {
   return (
     <Section ref={ref} id='skills'>
       <Title>Skills</Title>

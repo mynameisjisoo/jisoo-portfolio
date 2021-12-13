@@ -1,13 +1,7 @@
 import { faBars, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Switch } from 'antd';
-import React, {
-  useState,
-  useRef,
-  forwardRef,
-  useEffect,
-  useImperativeHandle
-} from 'react';
+import React, { useState, useRef, forwardRef, useEffect } from 'react';
 import styled from 'styled-components';
 
 const Nav = styled.nav`
@@ -23,7 +17,7 @@ const Nav = styled.nav`
   font-weight: bold;
   background-color: black;
   z-index: 100;
-  @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {
+  @media ${({ theme }) => theme.device.tablet} {
     flex-direction: column;
   }
 `;
@@ -33,7 +27,7 @@ const Logodiv = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {
+  @media ${({ theme }) => theme.device.tablet} {
     width: 100%;
   }
 `;
@@ -50,7 +44,7 @@ const MenuButton = styled.button`
   cursor: pointer;
 
   color: ${({ theme }) => theme.darkThemeColors.pointColor};
-  @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {
+  @media ${({ theme }) => theme.device.tablet} {
     display: inline;
   }
 `;
@@ -63,7 +57,7 @@ const Menu = styled.ul`
     color: ${({ theme }) => theme.darkThemeColors.pointColor};
   }
 
-  @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {
+  @media ${({ theme }) => theme.device.tablet} {
     flex-direction: column;
     margin: 0.3rem;
     display: ${props => (props.responsive ? 'flex' : 'none')};
@@ -77,7 +71,7 @@ const MenuItem = styled.li`
   white-space: nowrap;
   text-align: center;
 
-  @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {
+  @media ${({ theme }) => theme.device.tablet} {
     margin: 0.3rem 0;
   }
 `;
@@ -86,7 +80,7 @@ const ThemeButton = styled(Switch)`
   color: yellow;
   font-size: 1.5rem;
 
-  @media ${({ theme }) => (theme.device.mobile, theme.device.tablet)} {
+  @media ${({ theme }) => theme.device.tablet} {
     display: none;
     display: ${props => (props.responsive ? 'flex' : 'none')};
   }
@@ -121,7 +115,7 @@ const Navbar = forwardRef(
 
     const onMenuClick = e => {
       const target = e.target;
-      if (!target.id || target.id == currentSection) {
+      if (!target.id || target.id === currentSection) {
         return;
       }
       scrollIntoSection(target.id);
@@ -131,7 +125,7 @@ const Navbar = forwardRef(
 
     useEffect(() => {
       navItem[currentSection].current.classList.add('selected');
-    }, [currentSection]);
+    }, [currentSection, navItem]);
 
     return (
       <>

@@ -82,42 +82,46 @@ const Project = forwardRef(({}, ref) => {
   const data = {
     javascript: [
       {
-        name: 'carrot',
-        src: 'imgs/favicon-tiny.png',
-        link: 'https://www.google.com',
-        description: 'carrot'
+        name: 'Find a carrot',
+        src: 'imgs/project/carrot.png',
+        link: 'https://github.com/mynameisjisoo/carrot-game',
+        description: '순수 JavaScript, CSS, HTML 을 이용한 당근찾기 게임'
       },
       {
-        name: 'miniShoppingmall',
-        src: 'imgs/favicon-tiny.png',
-        link: 'https://www.naver.com',
-        description: 'shopping'
+        name: 'Mini Shoppingmall',
+        src: 'imgs/project/minishoppingmall.png',
+        link: 'https://github.com/mynameisjisoo/mini-shoppingmall',
+        description:
+          'json파일의 데이터를 자바스크립트를 이용해 동적으로 보여주는 연습을 한 프로젝트'
       }
     ],
     react: [
       {
-        name: 'habbitTracker',
-        src: 'imgs/jisoo-emoji.png',
-        link: 'https://www.naver.com',
-        description: 'habbit'
+        name: 'My Movie Diary',
+        src: 'imgs/project/mymoviediary.png',
+        link: 'https://github.com/mynameisjisoo/movie-diary',
+        description:
+          '영화 검색 API와 Firebase 라이브러리를 이용한 영화 검색 및 리뷰 기록 어플리케이션'
       },
       {
-        name: 'sootube',
-        src: 'imgs/jisoo-emoji.png',
-        link: 'https://www.naver.com',
-        description: 'youtube'
+        name: 'Card Maker',
+        src: 'imgs/project/cardmaker.png',
+        link: 'https://github.com/mynameisjisoo/card-maker',
+        description: 'React Router를 이용한 다중페이지 명함 제작 어플리케이션'
       },
+
       {
-        name: 'cardMaker',
-        src: 'imgs/jisoo-emoji.png',
-        link: 'https://www.naver.com',
-        description: 'cardMaker'
+        name: 'SooTube',
+        src: 'imgs/project/sootube.png',
+        link: 'https://github.com/mynameisjisoo/youtube-clone',
+        description: 'Youtube API와 React를 이용한 유튜브 검색기능 클론코딩'
       },
+
       {
-        name: 'movieDiary',
-        src: 'imgs/jisoo-emoji.png',
-        link: 'https://www.naver.com',
-        description: 'movieDiary'
+        name: 'Habit tracker',
+        src: 'imgs/project/habittracker.png',
+        link: 'https://github.com/mynameisjisoo/habbit-tracker',
+        description: 'React기본 개념 공부를 위해만든 Habit Tracker'
       }
     ],
     java: [

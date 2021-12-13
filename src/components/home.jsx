@@ -12,10 +12,11 @@ const StyledH1 = styled.h1`
   font-size: 2.4rem;
 `;
 
+
 const Name = styled.span`
   ${({ theme }) => {
     return css`
-      color: ${theme.colors.mint};
+      color: ${({ theme }) => theme.darkThemeColors.pointColor};
     `;
   }}
 `;

@@ -18,7 +18,7 @@ const Container = styled.div`
   ${({ theme }) => {
     return css`
       background-color: ${theme.darkThemeColors.bgColor};
-      color: ${theme.colors.silver};
+      color: ${theme.darkThemeColors.baseColor};
       font-family: ${theme.fonts.family.kor};
     `;
   }};
@@ -27,12 +27,13 @@ const Container = styled.div`
 const ArrowUp = styled(FontAwesomeIcon)`
   font-size: 3.5rem;
   position: fixed;
-  bottom: 2rem;
-  left: 95%;
+  bottom: 2.5rem;
+  right:1.5rem;
   cursor: pointer;
   z-index: 100;
   color: ${({ theme }) => theme.darkThemeColors.pointColor};
   transition: all 300ms ease-in;
+
   &:hover {
     transform: scale(1.1);
     color: ${({ theme }) => theme.darkThemeColors.pointColor2};

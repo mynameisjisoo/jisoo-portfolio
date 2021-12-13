@@ -1,7 +1,7 @@
 import { faBars, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Switch } from 'antd';
-import React, { useState, useRef, forwardRef, useEffect } from 'react';
+import React, { useState, useRef, forwardRef, useEffect, memo } from 'react';
 import styled from 'styled-components';
 
 const Nav = styled.nav`
@@ -15,7 +15,7 @@ const Nav = styled.nav`
   align-items: center;
   font-size: 1.5rem;
   font-weight: bold;
-  background-color: black;
+  background-color:  ${({ theme }) => theme.darkThemeColors.navbarColor};
   z-index: 100;
   @media ${({ theme }) => theme.device.tablet} {
     flex-direction: column;
@@ -86,7 +86,7 @@ const ThemeButton = styled(Switch)`
   }
 `;
 
-const Navbar = forwardRef(
+const Navbar = memo(forwardRef(
   (
     { theme, scrollIntoSection, currentSection, handleCurrentSection, ...rest },
     ref
@@ -127,6 +127,9 @@ const Navbar = forwardRef(
       navItem[currentSection].current.classList.add('selected');
     }, [currentSection, navItem]);
 
+    const changeTheme = (e) => {
+
+    }
     return (
       <>
         <Nav theme={theme} {...rest}>
@@ -158,6 +161,7 @@ const Navbar = forwardRef(
           </Menu>
           <ThemeButton
             responsive={responsive}
+            onChange={changeTheme}
             checkedChildren={<FontAwesomeIcon icon={faMoon} />}
             unCheckedChildren={<FontAwesomeIcon icon={faSun} />}
             defaultChecked
@@ -166,5 +170,5 @@ const Navbar = forwardRef(
       </>
     );
   }
-);
+));
 export default Navbar;

@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from 'react';
+import React, { forwardRef, memo, useState } from 'react';
 import styled from 'styled-components';
 import { Section, Title } from '../styles/styledComponent';
 import ProjectItem from './projectItem';
@@ -78,7 +78,7 @@ const StyledSwiper = styled(Swiper)`
   }
 `;
 
-const Project = forwardRef((param = {}, ref) => {
+const Project = memo(forwardRef((param = {}, ref) => {
   const data = {
     javascript: [
       {
@@ -209,6 +209,6 @@ const Project = forwardRef((param = {}, ref) => {
       </StyledSwiper>
     </Section>
   );
-});
+}));
 
 export default Project;

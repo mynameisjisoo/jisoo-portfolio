@@ -58,13 +58,14 @@ function App() {
     project: projectRef,
     contact: contactRef
   };
-  const scrollToTop = () => {
-    window.scroll({ top: 0, behavior: 'smooth' });
-  };
 
   const scrollIntoSection = selectedSection => {
-    const location = refs[selectedSection].current.offsetTop - 80;
+    const location = refs[selectedSection].current.offsetTop - 95;
     window.scroll({ top: location, behavior: 'smooth' });
+  };
+
+  const scrollToTop = () => {
+    window.scroll({ top: 0, behavior: 'smooth' });
   };
 
   const handleCurrentSection = clickedNavItem => {

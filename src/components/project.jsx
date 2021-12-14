@@ -128,9 +128,15 @@ const Project = memo(forwardRef((param = {}, ref) => {
     java: [
       {
         name: '똥피하기게임',
-        src: 'imgs/jisoo-emoji.png',
+        src: 'imgs/project/ddong.png',
+        link: 'https://github.com/mynameisjisoo/dodge-a-poo',
+        description: 'java의 thread개념을 공부하면서 만든 플래시게임'
+      },
+      {
+        name: '계산기게임',
+        src: 'imgs/project/operation.png',
         link: 'https://www.naver.com',
-        description: 'movieDiary'
+        description: 'java로 만든 연산 게임'
       }
     ]
   };

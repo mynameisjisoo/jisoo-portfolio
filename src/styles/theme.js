@@ -20,9 +20,9 @@ export const darkTheme = {
 export const lightTheme = {
   bgColor: '#FCF6F5',
   baseColor: '#000000',
-  pointColor: '#9CC3D5',
-  pointColor2: '#EEA47F',
-  navbarColor: '#7b9acc'
+  pointColor: '#EEA47F',
+  pointColor2: '#9CC3D5',
+  navbarColor: '#C8D9EB'
 };
 
 const theme = {

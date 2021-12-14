@@ -25,6 +25,7 @@ const Skill = styled.article`
   padding: 1.5rem 1rem;
   display: flex;
   flex-direction: column;
+  
 
   & h3 {
     font-size: 1.5rem;
@@ -90,7 +91,7 @@ const Skills = forwardRef((param = {}, ref) => {
         <Skill>
           <Icon icon={faJava} />
           <h3>Java</h3>
-          <li></li>
+          <li>기본 java 문법과 객체지향개념에 대한 이해</li>
         </Skill>
         <Skill>
           <Icon icon={faTools} />

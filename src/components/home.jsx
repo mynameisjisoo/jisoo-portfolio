@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import { Section } from '../styles/styledComponent';
-import theme from '../styles/theme';
 
 const HomeSection = styled(Section)`
   align-items: center;

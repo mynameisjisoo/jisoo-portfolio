@@ -49,17 +49,17 @@ const Contact = forwardRef((param = {}, ref) => {
       <Wrapper>
         <ContactInfo>
           <h3>Email</h3>
-          <a href='mailto:devjisoolee@gmail.com'>devjisoolee@gmail.com</a>
+          <a href='mailto:devjisoolee@gmail.com' target='_blank' rel="noreferrer">devjisoolee@gmail.com</a>
         </ContactInfo>
         <ContactInfo>
           <h3>Github</h3>
-          <a href='https://github.com/mynameisjisoo'>
+          <a href='https://github.com/mynameisjisoo' target='_blank' rel="noreferrer">
             github.com/mynameisjisoo
           </a>
         </ContactInfo>
         <ContactInfo>
           <h3>Notion</h3>
-          <a href='https://devjisoo.notion.site/Programing-study-8375aac256864f0a9ec9b3a6c892e8c4'>
+          <a href='https://devjisoo.notion.site/Programing-study-8375aac256864f0a9ec9b3a6c892e8c4' target='_blank' rel="noreferrer">
             Notion
           </a>
         </ContactInfo>

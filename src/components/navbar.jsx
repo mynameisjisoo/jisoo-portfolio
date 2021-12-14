@@ -87,99 +87,99 @@ const ThemeButton = styled(Switch)`
   }
 `;
 
-const Navbar = memo(
-  forwardRef(
-    (
-      {
-        theme,
-        scrollIntoSection,
-        currentSection,
-        handleCurrentSection,
-        changeTheme,
-        ...rest
-      },
-      ref
-    ) => {
-      const [responsive, setResponsive] = useState(false);
+const Navbar = forwardRef(
+  (
+    {
+      theme,
+      scrollIntoSection,
+      currentSection,
+      handleCurrentSection,
+      changeTheme,
+      ...rest
+    },
+    ref
+  ) => {
+    const [responsive, setResponsive] = useState('false');
 
-      const homeRef = useRef();
-      const aboutMeRef = useRef();
-      const timelineRef = useRef();
-      const skillsRef = useRef();
-      const projectRef = useRef();
-      const contactRef = useRef();
+    const homeRef = useRef();
+    const aboutMeRef = useRef();
+    const timelineRef = useRef();
+    const skillsRef = useRef();
+    const projectRef = useRef();
+    const contactRef = useRef();
 
-      const navItem = {
-        home: homeRef,
-        aboutMe: aboutMeRef,
-        timeline: timelineRef,
-        skills: skillsRef,
-        project: projectRef,
-        contact: contactRef
-      };
+    const navItem = {
+      home: homeRef,
+      aboutMe: aboutMeRef,
+      timeline: timelineRef,
+      skills: skillsRef,
+      project: projectRef,
+      contact: contactRef
+    };
 
-      const showMenuItem = () => {
-        setResponsive(!responsive);
-      };
+    const showMenuItem = () => {
+      setResponsive(!responsive);
+      console.log(typeof responsive)
+    };
 
-      const onMenuClick = e => {
-        const target = e.target;
-        if (!target.id || target.id === currentSection) {
-          return;
-        }
-        scrollIntoSection(target.id);
-        navItem[currentSection].current.classList.remove('selected');
-        handleCurrentSection(target.id);
-      };
+    const onMenuClick = e => {
+      const target = e.target;
+      if (!target.id || target.id === currentSection) {
+        return;
+      }
+      scrollIntoSection(target.id);
+      navItem[currentSection].current.classList.remove('selected');
+      handleCurrentSection(target.id);
+    };
 
-      useEffect(() => {
-        navItem[currentSection].current.classList.add('selected');
-      }, [currentSection, navItem]);
+    useEffect(() => {
+      navItem[currentSection].current.classList.add('selected');
+    }, [currentSection, navItem]);
 
-      const selectTheme = lightMode => {
-        const selectedTheme = lightMode ? 'lightTheme' : 'darkTheme';
-        changeTheme(selectedTheme);
-      };
-      return (
-        <>
-          <Nav theme={theme} {...rest}>
-            <Logodiv>
-              <Logo src='/imgs/favicon-tiny.png'></Logo>
-              <MenuButton>
-                <FontAwesomeIcon icon={faBars} onClick={showMenuItem} />
-              </MenuButton>
-            </Logodiv>
-            <Menu responsive={responsive} onClick={onMenuClick} ref={ref}>
-              <MenuItem id='home' ref={homeRef}>
-                Home
-              </MenuItem>
-              <MenuItem id='aboutMe' ref={aboutMeRef}>
-                About Me
-              </MenuItem>
-              <MenuItem id='timeline' ref={timelineRef}>
-                Timeline
-              </MenuItem>
-              <MenuItem id='skills' ref={skillsRef}>
-                Skills
-              </MenuItem>
-              <MenuItem id='project' ref={projectRef}>
-                Project
-              </MenuItem>
-              <MenuItem id='contact' ref={contactRef} i>
-                Contact
-              </MenuItem>
-            </Menu>
-            <ThemeButton
-              responsive={responsive}
-              onChange={selectTheme}
-              checkedChildren={<FontAwesomeIcon icon={faMoon} />}
-              unCheckedChildren={<FontAwesomeIcon icon={faSun} />}
-              defaultChecked
-            ></ThemeButton>
-          </Nav>
-        </>
-      );
-    }
-  )
+    const selectTheme = lightMode => {
+      const selectedTheme = lightMode ? 'lightTheme' : 'darkTheme';
+      changeTheme(selectedTheme);
+    };
+    return (
+      <>
+        <Nav theme={theme} {...rest}>
+          <Logodiv>
+            <Logo src='/imgs/favicon-tiny.png'></Logo>
+            <MenuButton>
+              <FontAwesomeIcon icon={faBars} onClick={showMenuItem} />
+            </MenuButton>
+          </Logodiv>
+          <Menu responsive={responsive} onClick={onMenuClick} ref={ref}>
+            <MenuItem id='home' ref={homeRef}>
+              Home
+            </MenuItem>
+            <MenuItem id='aboutMe' ref={aboutMeRef}>
+              About Me
+            </MenuItem>
+            <MenuItem id='timeline' ref={timelineRef}>
+              Timeline
+            </MenuItem>
+            <MenuItem id='skills' ref={skillsRef}>
+              Skills
+            </MenuItem>
+            <MenuItem id='project' ref={projectRef}>
+              Project
+            </MenuItem>
+            <MenuItem id='contact' ref={contactRef} i>
+              Contact
+            </MenuItem>
+          </Menu>
+          <ThemeButton
+            responsive={responsive}
+            onChange={selectTheme}
+            checkedChildren={<FontAwesomeIcon icon={faMoon} />}
+            unCheckedChildren={<FontAwesomeIcon icon={faSun} />}
+            defaultChecked
+          ></ThemeButton>
+        </Nav>
+      </>
+    );
+  }
 );
+
 export default Navbar;

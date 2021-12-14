@@ -48,6 +48,10 @@ const Description = styled.div`
     opacity: 0.9;
     transform: translateY(0px);
   }
+  &:after{
+    content: "👆Go to Github!";
+    font-size: 1.1rem;
+  }
 `;
 const ProjectItem = ({ item }) => {
   return (

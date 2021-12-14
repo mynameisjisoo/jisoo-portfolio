@@ -13,7 +13,7 @@ const StyledFooter = styled.footer`
 const FooterSection = props => {
   return (
     <StyledFooter>
-      <p>Copyright © 2021 | All rights reserved. | JISOO LEE</p>
+      <h3>Copyright © 2021 | All rights reserved. | JISOO LEE</h3>
     </StyledFooter>
   );
 };

@@ -59,7 +59,7 @@ const Skills = forwardRef((param = {}, ref) => {
           <Icon icon={faHtml5} />
           <h3>HTML</h3>
           <li>
-            시멘틱 태그에 대해 이해하고 접근성을 고려하기 위해 노력합니다.
+            시멘틱 태그에 대해 이해하고 접근성을 고려하기 위해 노력
           </li>
         </Skill>
         <Skill>

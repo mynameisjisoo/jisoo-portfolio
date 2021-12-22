@@ -5,7 +5,6 @@ import theme from '../styles/theme';
 
 const pointColor = css`
  ${({ theme }) => theme.pointColor};
-
 `;
 
 const TimelineContainer = styled.div`

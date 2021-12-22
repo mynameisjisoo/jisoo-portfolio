@@ -1,7 +1,8 @@
-import React, { forwardRef, memo, useState } from 'react';
+import React, { forwardRef, memo, useCallback, useState } from 'react';
 import styled from 'styled-components';
 import { Section, Title } from '../styles/styledComponent';
 import ProjectItem from './projectItem';
+import theme from '../styles/theme';
 
 // import Swiper core and required modules
 import SwiperCore, { Autoplay, Navigation, Pagination } from 'swiper';
@@ -13,7 +14,7 @@ import 'swiper/swiper.min.css';
 // modules styles
 import 'swiper/components/navigation/navigation.min.css';
 import 'swiper/components/pagination/pagination.min.css';
-import theme from '../styles/theme';
+import { useMemo } from 'react/cjs/react.development';
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
@@ -80,68 +81,70 @@ const StyledSwiper = styled(Swiper)`
 `;
 
 const Project = memo(forwardRef((param = {}, ref) => {
-  const data = {
-    javascript: [
-      {
-        name: 'Find a carrot',
-        src: 'imgs/project/carrot.png',
-        link: 'https://github.com/mynameisjisoo/carrot-game',
-        description: '순수 JavaScript, CSS, HTML 을 이용한 당근찾기 게임'
-      },
-      {
-        name: 'Mini Shoppingmall',
-        src: 'imgs/project/minishoppingmall.png',
-        link: 'https://github.com/mynameisjisoo/mini-shoppingmall',
-        description:
-          'json파일의 데이터를 자바스크립트를 이용해 동적으로 보여주는 연습을 한 프로젝트'
-      }
-    ],
-    react: [
-      {
-        name: 'My Movie Diary',
-        src: 'imgs/project/mymoviediary.png',
-        link: 'https://github.com/mynameisjisoo/movie-diary',
-        description:
-          '영화 검색 API와 Firebase 라이브러리를 이용한 영화 검색 및 리뷰 기록 어플리케이션'
-      },
-      {
-        name: 'Card Maker',
-        src: 'imgs/project/cardmaker.png',
-        link: 'https://github.com/mynameisjisoo/card-maker',
-        description: 'React Router를 이용한 다중페이지 명함 제작 어플리케이션'
-      },
+  const data = useMemo(() => {
+    return {
+      javascript: [
+        {
+          name: 'Find a carrot',
+          src: 'imgs/project/carrot.png',
+          link: 'https://github.com/mynameisjisoo/carrot-game',
+          description: '순수 JavaScript, CSS, HTML 을 이용한 당근찾기 게임'
+        },
+        {
+          name: 'Mini Shoppingmall',
+          src: 'imgs/project/minishoppingmall.png',
+          link: 'https://github.com/mynameisjisoo/mini-shoppingmall',
+          description:
+            'json파일의 데이터를 자바스크립트를 이용해 동적으로 보여주는 연습을 한 프로젝트'
+        }
+      ],
+      react: [
+        {
+          name: 'My Movie Diary',
+          src: 'imgs/project/mymoviediary.png',
+          link: 'https://github.com/mynameisjisoo/movie-diary',
+          description:
+            '영화 검색 API와 Firebase 라이브러리를 이용한 영화 검색 및 리뷰 기록 어플리케이션'
+        },
+        {
+          name: 'Card Maker',
+          src: 'imgs/project/cardmaker.png',
+          link: 'https://github.com/mynameisjisoo/card-maker',
+          description: 'React Router를 이용한 다중페이지 명함 제작 어플리케이션'
+        },
 
-      {
-        name: 'SooTube',
-        src: 'imgs/project/sootube.png',
-        link: 'https://github.com/mynameisjisoo/youtube-clone',
-        description: 'Youtube API와 React를 이용한 유튜브 검색기능 클론코딩'
-      },
+        {
+          name: 'SooTube',
+          src: 'imgs/project/sootube.png',
+          link: 'https://github.com/mynameisjisoo/youtube-clone',
+          description: 'Youtube API와 React를 이용한 유튜브 검색기능 클론코딩'
+        },
 
-      {
-        name: 'Habit tracker',
-        src: 'imgs/project/habittracker.png',
-        link: 'https://github.com/mynameisjisoo/habbit-tracker',
-        description: 'React기본 개념 공부를 위해만든 Habit Tracker'
-      }
-    ],
-    java: [
-      {
-        name: '똥피하기게임',
-        src: 'imgs/project/ddong.png',
-        link: 'https://github.com/mynameisjisoo/dodge-a-poo',
-        description: 'java의 thread개념을 공부하면서 만든 플래시게임'
-      },
-      {
-        name: '계산기게임',
-        src: 'imgs/project/operation.png',
-        link: 'https://www.naver.com',
-        description: 'java로 만든 연산 게임'
-      }
-    ]
-  };
+        {
+          name: 'Habit tracker',
+          src: 'imgs/project/habittracker.png',
+          link: 'https://github.com/mynameisjisoo/habbit-tracker',
+          description: 'React기본 개념 공부를 위해만든 Habit Tracker'
+        }
+      ],
+      java: [
+        {
+          name: '똥피하기게임',
+          src: 'imgs/project/ddong.png',
+          link: 'https://github.com/mynameisjisoo/dodge-a-poo',
+          description: 'java의 thread개념을 공부하면서 만든 플래시게임'
+        },
+        {
+          name: '계산기게임',
+          src: 'imgs/project/operation.png',
+          link: 'https://www.naver.com',
+          description: 'java로 만든 연산 게임'
+        }
+      ]
+    }
+  }, []);
 
-  const setAllselected = () => {
+  const setAllselected = useCallback(() => {
     const entireData = [];
     let i = 0;
     for (let key in data) {
@@ -152,7 +155,7 @@ const Project = memo(forwardRef((param = {}, ref) => {
       }
     }
     return entireData;
-  };
+  }, [data]);
 
   const [selectedProject, setSelectedProject] = useState(setAllselected);
 

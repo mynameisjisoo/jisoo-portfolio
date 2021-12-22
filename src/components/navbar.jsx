@@ -1,7 +1,7 @@
 import { faBars, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Switch } from 'antd';
-import React, { useState, useRef, forwardRef, useEffect, memo } from 'react';
+import React, { useState, useRef, forwardRef, useEffect, useMemo, memo } from 'react';
 import styled from 'styled-components';
 import theme from '../styles/theme';
 
@@ -61,7 +61,7 @@ const Menu = styled.ul`
   @media ${theme.device.tablet} {
     flex-direction: column;
     margin: 0.3rem;
-    display: ${props => (props.responsive ? 'flex' : 'none')};
+    display: ${props => (props.responsive === 'true' ? 'flex' : 'none')};
   }
 `;
 
@@ -71,6 +71,13 @@ const MenuItem = styled.li`
   cursor: pointer;
   white-space: nowrap;
   text-align: center;
+  transition: all 300ms ease-out;
+  
+
+  &:hover{
+    color: ${({ theme }) => theme.pointColor};
+    
+  }
 
   @media ${theme.device.tablet} {
     margin: 0.3rem 0;
@@ -79,15 +86,16 @@ const MenuItem = styled.li`
 
 const ThemeButton = styled(Switch)`
   color: yellow;
+  cursor: pointer;
   font-size: 1.5rem;
 
   @media ${theme.device.tablet} {
     display: none;
-    display: ${props => (props.responsive ? 'flex' : 'none')};
+    display: ${props => (props.responsive === 'true' ? 'flex' : 'none')};
   }
 `;
 
-const Navbar = forwardRef(
+const Navbar = memo(forwardRef(
   (
     {
       theme,
@@ -108,18 +116,19 @@ const Navbar = forwardRef(
     const projectRef = useRef();
     const contactRef = useRef();
 
-    const navItem = {
-      home: homeRef,
-      aboutMe: aboutMeRef,
-      timeline: timelineRef,
-      skills: skillsRef,
-      project: projectRef,
-      contact: contactRef
-    };
+    const navItem = useMemo(() => {
+      return {
+        home: homeRef,
+        aboutMe: aboutMeRef,
+        timeline: timelineRef,
+        skills: skillsRef,
+        project: projectRef,
+        contact: contactRef
+      }
+    }, []);
 
     const showMenuItem = () => {
-      setResponsive(!responsive);
-      console.log(typeof responsive)
+      setResponsive(responsive === 'false' ? 'true' : 'false');
     };
 
     const onMenuClick = e => {
@@ -180,6 +189,6 @@ const Navbar = forwardRef(
       </>
     );
   }
-);
+));
 
 export default Navbar;

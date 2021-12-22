@@ -16,6 +16,7 @@ body{
   background-color: transparent;
   outline: none;
   border: none;
+  cursor: pointer;
  }
 `;
 

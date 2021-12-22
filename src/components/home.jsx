@@ -16,6 +16,7 @@ const Name = styled.span`
     color: ${({ theme }) => theme.pointColor};
 `;
 
+
 const Home = forwardRef((param = {}, ref) => {
   return (
     <HomeSection ref={ref} id='home'>
@@ -26,6 +27,7 @@ const Home = forwardRef((param = {}, ref) => {
         <Name>이지수</Name>입니다.
       </StyledH1>
       <img src='/imgs/jisoo-emoji-macbook.png' alt='jisoo-emoji' />
+
     </HomeSection>
   );
 });

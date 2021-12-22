@@ -1,4 +1,4 @@
-import React, { forwardRef, memo, useCallback, useState } from 'react';
+import React, { forwardRef, memo, useCallback, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { Section, Title } from '../styles/styledComponent';
 import ProjectItem from './projectItem';
@@ -14,7 +14,7 @@ import 'swiper/swiper.min.css';
 // modules styles
 import 'swiper/components/navigation/navigation.min.css';
 import 'swiper/components/pagination/pagination.min.css';
-import { useMemo } from 'react/cjs/react.development';
+
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 

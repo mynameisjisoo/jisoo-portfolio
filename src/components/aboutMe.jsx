@@ -17,7 +17,7 @@ const Image = styled.img`
   width: 50%;
 
   @media ${theme.device.tablet} {
-    width: 100%;
+    width: 90%;
   }
 
 `;

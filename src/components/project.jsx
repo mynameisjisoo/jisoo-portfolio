@@ -18,10 +18,6 @@ import 'swiper/components/pagination/pagination.min.css';
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
-const Subtitle = styled.h1`
-  text-align: center;
-  margin: 0;
-`;
 
 const Category = styled.div`
   display: flex;
@@ -98,34 +94,39 @@ const Project = memo(forwardRef((param = {}, ref) => {
             'json파일의 데이터를 자바스크립트를 이용해 동적으로 보여주는 연습을 한 프로젝트'
         }
       ],
-      react: [
-        {
-          name: 'My Movie Diary',
-          src: 'imgs/project/mymoviediary.png',
-          link: 'https://github.com/mynameisjisoo/movie-diary',
-          description:
-            '영화 검색 API와 Firebase 라이브러리를 이용한 영화 검색 및 리뷰 기록 어플리케이션'
-        },
-        {
-          name: 'Card Maker',
-          src: 'imgs/project/cardmaker.png',
-          link: 'https://github.com/mynameisjisoo/card-maker',
-          description: 'React Router를 이용한 다중페이지 명함 제작 어플리케이션'
-        },
+      react: [{
+        name: "Jisoo's portfolio",
+        src: 'imgs/project/portfolio.png',
+        link: 'https://github.com/mynameisjisoo/jisoo-portfolio',
+        description: '지금 보고계신 바로 이 사이트!'
+      },
+      {
+        name: 'My Movie Diary',
+        src: 'imgs/project/mymoviediary.png',
+        link: 'https://github.com/mynameisjisoo/movie-diary',
+        description:
+          '영화 검색 API와 Firebase 라이브러리를 이용한 영화 검색 및 리뷰 기록 어플리케이션'
+      },
+      {
+        name: 'Card Maker',
+        src: 'imgs/project/cardmaker.png',
+        link: 'https://github.com/mynameisjisoo/card-maker',
+        description: 'React Router를 이용한 다중페이지 명함 제작 어플리케이션'
+      },
 
-        {
-          name: 'SooTube',
-          src: 'imgs/project/sootube.png',
-          link: 'https://github.com/mynameisjisoo/youtube-clone',
-          description: 'Youtube API와 React를 이용한 유튜브 검색기능 클론코딩'
-        },
+      {
+        name: 'SooTube',
+        src: 'imgs/project/sootube.png',
+        link: 'https://github.com/mynameisjisoo/youtube-clone',
+        description: 'Youtube API와 React를 이용한 유튜브 검색기능 클론코딩'
+      },
 
-        {
-          name: 'Habit tracker',
-          src: 'imgs/project/habittracker.png',
-          link: 'https://github.com/mynameisjisoo/habbit-tracker',
-          description: 'React기본 개념 공부를 위해만든 Habit Tracker'
-        }
+      {
+        name: 'Habit tracker',
+        src: 'imgs/project/habittracker.png',
+        link: 'https://github.com/mynameisjisoo/habbit-tracker',
+        description: 'React기본 개념 공부를 위해만든 Habit Tracker'
+      }
       ],
       java: [
         {
@@ -137,7 +138,7 @@ const Project = memo(forwardRef((param = {}, ref) => {
         {
           name: '계산기게임',
           src: 'imgs/project/operation.png',
-          link: 'https://www.naver.com',
+          link: 'https://github.com/mynameisjisoo/operation-game',
           description: 'java로 만든 연산 게임'
         }
       ]
@@ -200,8 +201,7 @@ const Project = memo(forwardRef((param = {}, ref) => {
 
   return (
     <Section ref={ref} id='project'>
-      <Title>Project and Experience</Title>
-      <Subtitle>Projects</Subtitle>
+      <Title>Project</Title>
       <Category onClick={onButtonClick}>
         <Button value='all'>All</Button>
         <Button value='javascript'>JavaScript</Button>

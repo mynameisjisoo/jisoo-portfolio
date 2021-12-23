@@ -95,9 +95,10 @@ const Skills = forwardRef((param = {}, ref) => {
         </Skill>
         <Skill>
           <Icon icon={faTools} />
-          <h3>Tools</h3>
+          <h3>Etc</h3>
           <li>Git, GitKraken</li>
           <li>VS Code, Eclipse</li>
+          <li>Netlify, github pages</li>
           <li>Slack</li>
           <li>Postman</li>
         </Skill>

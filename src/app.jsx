@@ -1,6 +1,7 @@
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRef, useState } from 'react';
+import smoothscroll from 'smoothscroll-polyfill';
 import styled, { ThemeProvider } from 'styled-components';
 import './app.css';
 import AboutMe from './components/aboutMe';
@@ -62,6 +63,7 @@ function App() {
   const scrollIntoSection = selectedSection => {
     const location = refs[selectedSection].current.offsetTop - 95;
     window.scroll({ top: location, behavior: 'smooth' });
+    smoothscroll.polyfill()
   };
 
   const scrollToTop = () => {

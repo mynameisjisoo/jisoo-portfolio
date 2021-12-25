@@ -139,6 +139,7 @@ const Navbar = memo(forwardRef(
       scrollIntoSection(target.id);
       navItem[currentSection].current.classList.remove('selected');
       handleCurrentSection(target.id);
+      showMenuItem()
     };
 
     useEffect(() => {

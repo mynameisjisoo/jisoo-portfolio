@@ -19,13 +19,14 @@ const Container = styled.div`
   color: ${({ theme }) => theme.baseColor};
   background-color: ${({ theme }) => theme.bgColor};
   font-family: ${theme.fonts.family.kor};
+  margin:0;
 `;
 
 const ArrowUp = styled(FontAwesomeIcon)`
   font-size: 3.5rem;
   position: fixed;
   bottom: 2.5rem;
-  right: 1.5rem;
+  right: 2rem;
   cursor: pointer;
   z-index: 100;
   color: ${({ theme }) => theme.pointColor};

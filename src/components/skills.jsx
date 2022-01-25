@@ -99,6 +99,7 @@ const Skills = forwardRef((param = {}, ref) => {
           <li>Git, GitKraken</li>
           <li>VS Code, Eclipse</li>
           <li>Netlify, github pages</li>
+          <li>Notion</li>
           <li>Slack</li>
           <li>Postman</li>
         </Skill>

@@ -23,7 +23,7 @@ const Image = styled.img`
 `;
 
 const Description = styled.p`
-  padding: 3rem;
+  padding: 2.9rem;
   margin: 0;
   font-size: 1.2rem;
   @media ${theme.device.tablet} {

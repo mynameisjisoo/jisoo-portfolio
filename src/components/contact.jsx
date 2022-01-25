@@ -59,7 +59,7 @@ const Contact = forwardRef((param = {}, ref) => {
         </ContactInfo>
         <ContactInfo>
           <h3>Notion</h3>
-          <a href='https://devjisoo.notion.site/Programing-study-8375aac256864f0a9ec9b3a6c892e8c4' target='_blank' rel="noreferrer">
+          <a href='https://www.notion.so/devjisoo/Jisoo-Lee-8b6b4af1db894cfeaa3828658fcfa61b' target='_blank' rel="noreferrer">
             Notion
           </a>
         </ContactInfo>

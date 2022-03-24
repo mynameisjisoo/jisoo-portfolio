@@ -2,9 +2,8 @@
 
 ## React를 이용한 나만의 포트폴리오 사이트
 
-<!-- ### 내가 본 영화를 검색하고 나만의 감상평과 평점을 기록해보세요! (로그인 후 이용가능) -->
 
-### [✨ Demo Link ✨](https://jisoo-portfolio.netlify.app/) <!--url 수정하기>
+### [✨ Demo Link ✨](https://jisoo-portfolio.netlify.app/) 
 
 ### 1. 사용한 기술들
 
